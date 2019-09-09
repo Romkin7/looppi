@@ -13,7 +13,7 @@ App vaatii toimiakseen
 se teidän tulee itse luoda ja määritellä.
 sen sisältöön kuuluu seuraavat NodeJS prosess.env muuttujat
 
-PORT = 
+PORT = 8080
 IP = 0.0.0.0 tai vastaava 
 SECRET = tämä on secret jota vaatii JWT kirjasto
 

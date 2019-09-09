@@ -38,6 +38,17 @@ app.set("ip", process.env.IP);
 //Setup middleware to parse incoming requests to this web api
 app.use(bodyParser.json());
 
+//Setup morgan production and development logging here
+if(app.get("env") === "Websiteion") {
+    app.use(morgan("common", {
+        skip: function(req, res) {
+            return res.statusCode < 400
+        }, stream: __dirname + '/../morgan.log'
+    }));
+} else {
+    app.use(morgan('dev'));
+}
+
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
     app.use(expres.static("wrappi-client/build"));
