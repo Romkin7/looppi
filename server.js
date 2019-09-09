@@ -61,4 +61,4 @@ app.use(errorHandler);
 
 app.listen(app.get("port"), app.get("ip"), (error) => {
     console.log("Wrappi appi palvelin on startattu portilla "+app.get("port")+" apin ip on "+app.get("ip")+".");
-})
+});
