@@ -25,7 +25,21 @@ mutta vasta sitten kun olet luonut .env tiedosto samaan kansioon missä server.j
 Tämän jälkeen voit mennä komennolla cd wrappi-client kansioon ja suorittaa siellä myös npm install 
 komennon.
 
-sen jälkeen palata takaisin cd .. komennolla ja startata node prosessin ja react frontend dev serverin 
-yhdellä komennolla npm run dev
+sen jälkeen palata takaisin 
+
+cd .. ¨
+
+komennolla
+
+tämän jälkeen suorita seuraavat kaksi komentoa 
+
+npm install concurrently -g 
+ja 
+npm install nodemon -g
+
+ja startata node prosessin ja react frontend dev serverin 
+yhdellä komennolla
+
+ npm run dev
 
 Happy Coding!!!
