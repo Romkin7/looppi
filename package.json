@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run test",
-    "client": "npm run --prefix wrappi-client",
+    "client": "npm start --prefix wrappi-client",
     "server": "nodemon bin/dev",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
