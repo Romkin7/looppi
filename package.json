@@ -1,0 +1,37 @@
+{
+  "name": "wrappi",
+  "version": "1.0.0",
+  "description": "React, Node, Mysql and Express fullstack app that is design",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test",
+    "client": "npm run --prefix wrappi-client",
+    "server": "nodemon bin/dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Romkin7/wrappi.git"
+  },
+  "keywords": [
+    "Math",
+    "School",
+    "classes",
+    "1",
+    "to",
+    "9"
+  ],
+  "author": "Roman Tuomisto & Pauliina Veijalainen",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0"
+  },
+  "proxy": "http://localhost:8080"
+}
