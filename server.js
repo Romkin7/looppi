@@ -16,10 +16,10 @@
 // It will serve REACT client as json api
 // user authentication implemented using jwt-tokens.
 
-// This file is the one that gets always executed wen wwe tart our webapp.
+// This file is the one that gets always executed wen wwe tart our webapp. 
+// Node runs this main file to strat process.
 //This file will start our server on port that we specify and it will recieve
 // all requests that we will send to port 8080 and later in production.
-//We always start our 
 
 //Setup web apps dependencies
 const express = require('express');
