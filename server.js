@@ -53,7 +53,7 @@ if(app.get("env") === "Websiteion") {
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
-    app.use(expres.static("wrappi-client/build"));
+    app.use(express.static("wrappi-client/build"));
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, 'wrappi-client', 'build', "index.html"));
     });
