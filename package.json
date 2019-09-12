@@ -4,6 +4,7 @@
   "description": "React, Node, Mysql and Express fullstack app that is design",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "npm run test",
     "client": "npm start --prefix wrappi-client",
     "server": "nodemon bin/dev",
@@ -33,6 +34,5 @@
   },
   "devDependencies": {
     "dotenv": "^8.1.0"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }

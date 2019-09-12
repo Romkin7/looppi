@@ -58,6 +58,11 @@ if(process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, 'wrappi-client', 'build', "index.html"));
     });
 }
+app.get("/", (req, res) => {
+    res.json({
+        message: "Hello from / route."
+    });
+});
 
 app.use(errorHandler);
 

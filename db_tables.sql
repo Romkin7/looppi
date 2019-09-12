@@ -15,13 +15,6 @@ create table results(
 );
 create table users(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    firstname VARCHAR(40) NOT NULL,
-    secondname VARCHAR(40) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
-    birthday DATE NOT NULL,
-    class CHAR(2) NOT NULL,
-    School VARCHAR(60) NOT NULL,
-    email VARCHAR(60) UNIQUE NOT NULL,
     password VARCHAR(60) NOT NULL,
     username VARCHAR(30) UNIQUE NOT NULL,
     avatar VARCHAR(300) NOT NULL DEFAULT 'images/noimage.jpg',
