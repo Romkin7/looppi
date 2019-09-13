@@ -1,4 +1,5 @@
 //********************************************************************************************* */
+
 // WRAPPI app
 
 //Made by Roman Tuomisto & Pauliina Veijalainen
@@ -8,8 +9,11 @@
 // All Rights reserved, 2019
 
 // App uses Node JS on the backend, React and redux on front-end and MySql as Dataase.
+
 /************************************************************************************************ */
+
 // HOW TO RUN THIS APP
+
 /**************************************************************************************************/
 
 // This is min Nodejs webserver Wrappi apps file.
@@ -58,6 +62,7 @@ if(process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(__dirname, 'wrappi-client', 'build', "index.html"));
     });
 }
+
 app.get("/", (req, res) => {
     res.json({
         message: "Hello from / route."
