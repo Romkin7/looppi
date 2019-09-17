@@ -24,7 +24,10 @@ class Game extends Component {
             this.setState({numbers: this.state.numbers.pop()});
             this.createCalculation(amountOfNumbers, operator, maxResult);
         } else {
-            this.setState({result: this.state.numbers.reduce(this.addition)});
+            this.setState({
+              result: this.state.numbers.reduce(this.addition),
+              numbers: this.state.numbers
+            });
             return;
         }
       }
@@ -32,12 +35,20 @@ class Game extends Component {
       componentDidMount() {
         // Kutsutaan funktiota ja syötetään siihen parametrit:
         // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
-        this.createCalculation(3, this.addition, 20);
+        this.createCalculation(2, this.addition, 10);
       }
       
+      getResult = (input) => {
+
+      }
+
     render() {
         return (
-            <h1>{ this.state.result }</h1>
+          <div>
+            <NumberBox number={this.state.numbers[0]} result={false} />
+            <NumberBox number={this.state.numbers[1]} result={false} />
+            <NumberBox result={true} rightResult={this.state.result} />
+          </div>
         );
     }
 }

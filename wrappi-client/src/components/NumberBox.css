@@ -1,0 +1,30 @@
+.box {
+    height: 100px;
+    width: 100px;
+    background-color: lightgray;
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+}
+
+.basic {
+    background-color: lightgray;
+}
+
+.wrong {
+    
+}
+
+form {
+    margin: auto;
+    height: inherit;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid;
+    background: transparent;
+    max-width: 100%;
+    display: block;
+    text-align: center;
+}
