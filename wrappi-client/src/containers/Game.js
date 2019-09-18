@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NumberBox from "../components/NumberBox";
+import './Game.css';
 
 class Game extends Component {
     constructor(props) {
@@ -44,11 +45,21 @@ class Game extends Component {
 
     render() {
         return (
-          <div>
-            <NumberBox number={this.state.numbers[0]} result={false} />
-            <NumberBox number={this.state.numbers[1]} result={false} />
-            <NumberBox result={true} rightResult={this.state.result} />
+          <div className="calcContainer">
+          <div className="title"><h1>Yhteenlaskut 1-10</h1></div>
+            <div className="boxes">
+              <NumberBox number={this.state.numbers[0]} result={false} />
+              <p className="operatorSpace">+</p>
+              <NumberBox number={this.state.numbers[1]} result={false} />
+              <p className="operatorSpace">=</p>
+              <NumberBox result={true} rightResult={this.state.result} />
+            </div>
+            <div className="displayResults">
+              <p>Suoritettuja laskuja:</p>
+              <p>Kulunut aika:</p>
+            </div>
           </div>
+          
         );
     }
 }
