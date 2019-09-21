@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister&display=swap');
+
+.calcContainer {
+    width: 100%;
+    height: 100%;
+    background: url('../chalkboard-517818_1920.jpg') no-repeat center center fixed;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.title {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: white;;
+    background-color: #E348C3;
+    text-align: center;
+    padding: 1px;
+}
+
+.boxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+}
+
+
+.operatorSpace {
+    width: 10%;
+    height: 10%;
+    text-align: center;
+    font-size: 3em;
+}
+
+.displayResults {
+    background-color: #28C349;
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: white;
+    padding: 1px;
+}
+
+p {
+    text-align: center;
+}
