@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NumberBox from "../components/NumberBox";
+import NumberBox from "../components/NumberBox/NumberBox";
 import './Game.css';
 
 class Game extends Component {
@@ -44,9 +44,18 @@ class Game extends Component {
       }
 
     render() {
+        const { maxResult, operator } = this.props;
+        const title = operator === "addition" 
+        ? "Yhteenlaskut" 
+        : operator === "substraction" 
+        ? "Vähennyslaskut" 
+        : operator === "multiplication"
+        ? "Kertotaulut"
+        : "Jakolaskut";
+
         return (
           <div className="calcContainer">
-          <div className="title"><h1>Yhteenlaskut 1-10</h1></div>
+          <div className="title"><h1>{title} 0-{maxResult}</h1></div>
             <div className="boxes">
               <NumberBox number={this.state.numbers[0]} result={false} />
               <p className="operatorSpace">+</p>
