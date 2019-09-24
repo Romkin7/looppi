@@ -1,33 +1,33 @@
-import React, { Component } from 'react';
-import Login from "./Login";
-import Game from "./Game";
-import {BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
+import { Provider } from "react-redux";
+import { configureStore } from "../store";
+import { setAuthorizationToken, setCurrentUser } from "../store/actions/auth";
+import jwtDecode from "jwt-decode";
+import Main from "./Main";
+import {BrowserRouter as Router } from "react-router-dom";
 
-class App extends Component {
-  state = {
-    maxResult: 20,
-    amountOfNumbers: 2,
-    operator: "multiplication"
-  }
+const store = configureStore();
 
-  setParameters = (newMaxResult, newOperator) => {
-    this.setState({
-      maxResult : newMaxResult,
-      operator : newOperator
-    })
-  }
-
-  render () {
-    const { amountOfNumbers, operator, maxResult } = this.state;
-    return (
-        <div className="App">
-          <Router>
-            <Route path="/" exact render={props => <Login updateParameters={() => this.setParameters} />}></Route>
-            <Route path="/peli" render={props => <Game amountOfNumbers={amountOfNumbers} operator={operator} maxResult={maxResult} />}></Route>
-          </Router>
-        </div>
-    );
+if(localStorage.jwtToken) {
+  setAuthorizationToken(localStorage.jwtToken);
+  // Prevent someone from manually tampering with the key of jwtToken in localStorage
+  try {
+    store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+  } catch(error) {
+    store.dispatch(setCurrentUser({}));
   }
 }
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <Router>
+          <Main />
+        </Router>
+      </div>
+    </Provider>
+  );
+};
 
 export default App;

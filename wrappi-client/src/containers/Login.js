@@ -3,22 +3,29 @@ import MenuItem from '../components/MenuItem/MenuItem';
 
 class Login extends Component {
     state = {
-        username: '',
+        userdata: {
+            username: ''
+        },
         showStartGameButton: false
     }
 
 nameHandler = (event) => {
     this.setState({
-        [event.target.name] : event.target.value
+        userdata: {
+            [event.target.name] : event.target.value
+        }
     });
 }
 
 submitHandler = (event) => {
     event.preventDefault();
-    this.setState({
-        showStartGameButton: true
+    this.props.onAuth("login", this.state.userdata).then((res) => {
+        this.setState({
+            showStartGameButton: true
+        });
+    }).catch((error) => {
+        return; 
     });
-    console.log("username is: ", this.state.username);
 }; 
 render () {
     const { username, showStartGameButton } = this.state;
