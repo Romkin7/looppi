@@ -34,6 +34,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const errorHandler = require("./handlers/errorHandler");
 
+/** require routes here */
+const authRoutes = require('./routes/login');
+
 //Initialize express application
 const app = express();
 
@@ -63,12 +66,7 @@ if(process.env.NODE_ENV === "production") {
     });
 }
 
-app.get("/", (req, res) => {
-    res.json({
-        message: "Hello from / route."
-    });
-});
-
+app.use(authRoutes);
 app.use(errorHandler);
 
 app.listen(app.get("port"), app.get("ip"), (error) => {
