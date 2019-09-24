@@ -3,8 +3,9 @@ const router = express.Router();
 
 router.post("/login", async(req, res, next) => {
     try {
-        return res.status(201).json(req.body.username
-            );
+        return res.status(201).json({
+            username: req.body.username
+        });
     } catch(err) {
         return next(err);
     }
