@@ -1,13 +1,13 @@
-WRAPPI app
+Looppi app
 copyright 2019 Roman Tuomisto & Pauliina Veijalainen
 
-Wrappi app on matemaattisia laskutoimituksia sisältävä fullstack web appi, 
+Looppi app on matemaattisia laskutoimituksia sisältävä fullstack web appi, 
 joka on toteutettu NodeJS, ReactJS ja MySql teknologioita hyödyntäen.
 
 sen tarkoitus on auttaa peruskoululaisia oppimaan matemaattisia 
 laskutaitoja koulun matematiikan tuntien ohella.
 
-App vaatii toimiakseen 
+Looppi Appi vaatii toimiakseen 
 
 .env tiedoston, jota ei ole tässä kyseisessä github repossa turvallisuus syistä.
 se teidän tulee itse luoda ja määritellä.

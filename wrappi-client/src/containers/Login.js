@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import MenuItem from '../components/MenuItem/MenuItem';
 
 class Login extends Component {
@@ -37,7 +38,7 @@ render () {
             <button>Luo nimimerkki</button>
         </form>}
         {showStartGameButton && 
-        <div><p>Tervetuloa, { username }!</p>
+        <div><p>Tervetuloa, { this.props.currentUser.user.username }!</p>
             <ul>
                 <MenuItem />
             </ul>
@@ -46,5 +47,10 @@ render () {
     )
 }
 }
-
-export default Login;
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser,
+        errors: state.errors
+    }
+}
+export default connect(mapStateToProps, { })(Login);
