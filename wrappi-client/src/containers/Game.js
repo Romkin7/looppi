@@ -9,11 +9,13 @@ class Game extends Component {
             // time: 0,
             numbers: [],
             result: 0,
+            maxResult: 0,
             inputValid: false,
             rightAnswers: 0,
             wrongAnswers: 0,
             tries: 2,
-            success: false
+            success: false,
+            wrong: false
           }
         }
         getRandomNumber = (min, max) => {
@@ -31,7 +33,10 @@ class Game extends Component {
         } else {
             this.setState({
               result: this.state.numbers.reduce(this.addition),
-              numbers: this.state.numbers
+              numbers: this.state.numbers,
+              maxResult: maxResult,
+              success: false,
+              wrong: false
             });
             return;
         }
@@ -43,12 +48,28 @@ class Game extends Component {
         this.createCalculation(2, this.addition, 10);
       }
       
-      answerHandler(answer) {
+      answerHandler = (answer) => {
+        console.log(typeof(answer));
         if(this.state.result === answer) {
           this.setState({
             rightAnswers: this.state.rightAnswers++,
-            success: true
+            success: true,
+            wrong: false
           })
+          this.createCalculation(2, this.addition, 10);
+        } else if (this.state.wrongAnswers < 1){
+          this.setState({
+            wrongAnswers: this.state.wrongAnswers++,
+            success: false,
+            wrong: true
+          })
+        } else {
+          this.setState({
+            wrongAnswers: 0,
+            success: false,
+            wrong: true
+          });
+          this.createCalculation(2, this.addition, 10);
         }
       }
 
@@ -71,10 +92,13 @@ class Game extends Component {
                 <p className="operatorSpace">+</p>
                 <NumberBox number={this.state.numbers[1]} result={false} />
                 <p className="operatorSpace">=</p>
-                <NumberBox 
+                <NumberBox
+                  success={this.state.success}
+                  wrong={this.state.wrong}
+                  maxResult={this.state.maxResult}
                   result={this.state.result} 
                   rightResult={this.state.result}
-                  submit={() => this.answerHandler()}
+                  submit={this.answerHandler}
                    />
               </div>
               <div className="displayResults">

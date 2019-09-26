@@ -40,3 +40,13 @@ input {
     font-weight: bold;
     font-size: 1.5em;
 }
+
+.success {
+    /* Tänne rumpuharjoituksesta tyylit! */
+    border: 1px solid green;
+}
+
+.wrong {
+    /* Tännekin rumpuharjoituksesta tyylit */
+    border: 1px groove red;
+}

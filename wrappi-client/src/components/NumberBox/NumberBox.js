@@ -23,15 +23,15 @@ class NumberBox extends Component{
         event.preventDefault();
         this.props.submit(this.state.input.answer);
     }
+    
    render() {
-        const  { result, number } = this.props;
+        const  { maxResult, result, number, success, wrong } = this.props;
         const { answer } = this.state.input;
-        console.log(this.state.input.answer);
         if(result > 0) {
             return( 
-                <div className="box">
+                <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
                     <form onSubmit={this.submitHandler}>
-                        <input name="answer" type="text" value={ answer } onChange={this.changeHandler} />
+                        <input name="answer" type="number" min="0" max={maxResult} value={ answer } onChange={this.changeHandler} />
                         <button>Tarkista</button>
                     </form>
                 </div>
@@ -39,7 +39,7 @@ class NumberBox extends Component{
         } else {
             return(
                 <div className="box">
-                    <h2>{ number}</h2>
+                    <h2>{ number }</h2>
                 </div>
             )
         
