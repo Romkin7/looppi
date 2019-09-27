@@ -21,7 +21,7 @@ code {
   position: relative;
 }
 header, .displayResults {
-  height: 15vh;
+  height: 6rem;
 }
 .boxes {
   height: 70vh;
