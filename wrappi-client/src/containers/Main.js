@@ -43,7 +43,7 @@ class Main extends Component {
                 <AppNavbar titleText={title} maxResult={ maxResult } bgColor={ bgColor }></AppNavbar>
                 <Switch>
                     <Route path="/" exact render={props => {
-                    return (<Login removeError={ removeError } errors={ errors } onAuth={ authenticateUser } updateParameters={() => this.setParameters(10, "addition", "blue", 2)} />)}}></Route>
+                    return (<Login removeError={ removeError } errors={ errors } onAuth={ authenticateUser } updateParameters={this.setParameters} />)}}></Route>
                     <Route path="/peli" render={props => <Game amountOfNumbers={amountOfNumbers} operator={operator} maxResult={maxResult} />}></Route>
                 </Switch>
             </div>
