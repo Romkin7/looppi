@@ -39,7 +39,7 @@ class Main extends Component {
         : operator === "division" ? "Jakolaskut  0–"
         : "Looppi - Tervetuloa";
         return (
-            <div>
+            <div className="mainContainer">
                 <AppNavbar titleText={title} maxResult={ maxResult } bgColor={ bgColor }></AppNavbar>
                 <Switch>
                     <Route path="/" exact render={props => {

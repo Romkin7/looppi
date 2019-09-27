@@ -11,16 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.App, .calcContainer, main {
+.App {
   height: 100vh;
+}
+.mainContainer {
+  height: inherit;
 }
 .title, .boxes, .displayResults {
   position: relative;
 }
-.title, .displayResults {
+header, .displayResults {
   height: 15vh;
 }
 .boxes {
-  height: 65vh;
+  height: 70vh;
 }
 
