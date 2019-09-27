@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './MenuItem.css';
 
-const MenuItem = () => {
+const MenuItem = ({text, click }) => {
     return (
         <li>
-            <Link to="/peli">Hei vaan!</Link>
+            <Link to="/peli" onClick={click}>{text}</Link>
         </li>
     )
 }

@@ -30,7 +30,7 @@ form {
     height: 120px;
 }
 
-input {
+input.number {
     height: inherit;
     width: inherit;
     border: none;
