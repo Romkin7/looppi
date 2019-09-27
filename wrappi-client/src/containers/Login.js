@@ -43,7 +43,7 @@ render () {
             <button>Luo nimimerkki</button>
         </form>}
         {showStartGameButton && 
-        <div><p>Tervetuloa, { this.props.currentUser.user.username }!</p>
+        <div><p>Tervetuloa, { this.props.currentUser.user.user }!</p>
             <ul>
                 <MenuItem click={() => this.setGameParameters(50, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
                 <MenuItem click={() => this.setGameParameters(50, "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
