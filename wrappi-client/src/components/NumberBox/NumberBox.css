@@ -17,6 +17,7 @@
 button {
     background-color: #28C349;
     border: 1px solid #28C349;
+    margin-top: 20px;
     padding: 10px;
     border-radius: 5px;
     color: white;
@@ -42,11 +43,13 @@ input {
 }
 
 .success {
-    /* Tänne rumpuharjoituksesta tyylit! */
-    border: 1px solid green;
+    border-color: green;
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem green;
 }
 
 .wrong {
-    /* Tännekin rumpuharjoituksesta tyylit */
-    border: 1px groove red;
+    border-color: red;
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem red;
 }

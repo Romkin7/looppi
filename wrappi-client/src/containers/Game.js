@@ -9,7 +9,6 @@ class Game extends Component {
             // time: 0,
             numbers: [],
             result: 0,
-            maxResult: 0,
             inputValid: false,
             rightAnswers: 0,
             wrongAnswers: 0,
@@ -34,7 +33,6 @@ class Game extends Component {
             this.setState({
               result: this.state.numbers.reduce(this.addition),
               numbers: this.state.numbers,
-              maxResult: maxResult,
               success: false,
               wrong: false
             });
@@ -49,7 +47,6 @@ class Game extends Component {
       }
       
       answerHandler = (answer) => {
-        console.log(typeof(answer));
         if(this.state.result === answer) {
           this.setState({
             rightAnswers: this.state.rightAnswers++,
@@ -76,17 +73,9 @@ class Game extends Component {
     render() {
         const { answer } = this.state;
         const { maxResult, operator } = this.props;
-        const title = operator === "addition" 
-        ? "Yhteenlaskut" 
-        : operator === "substraction" 
-        ? "Vähennyslaskut" 
-        : operator === "multiplication"
-        ? "Kertotaulut"
-        : "Jakolaskut";
 
         return (
-            <div className="calcContainer">
-              <div className="title"><h1>{title} 0–{maxResult}</h1></div>
+            <main className="calcContainer">
               <div className="boxes">
                 <NumberBox number={this.state.numbers[0]} result={false} />
                 <p className="operatorSpace">+</p>
@@ -108,7 +97,7 @@ class Game extends Component {
                   <p>Kulunut aika:</p>
                 </div>
               </div>  
-            </div> 
+            </main> 
         );
     }
 }

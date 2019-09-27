@@ -10,15 +10,6 @@
     justify-content: center;
     color: white;
 }
-
-.title {
-    font-family: 'Love Ya Like A Sister', cursive;
-    color: white;;
-    background-color: #E348C3;
-    text-align: center;
-    padding: 1px;
-}
-
 .boxes {
     display: flex;
     justify-content: center;

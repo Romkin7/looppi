@@ -7,26 +7,39 @@ import { removeError } from "../store/actions/errors";
 
 import Login from "./Login";
 import Game from "./Game";
+import AppNavbar from "./AppNavbar";
 
 class Main extends Component {
     state = {
-        maxResult: 20,
+        maxResult: "",
         amountOfNumbers: 2,
-        operator: "multiplication"
+        operator: "",
+        bgColor: "blue"
     }
     
-    setParameters = (newMaxResult, newOperator) => {
+    setParameters = (newMaxResult, newOperator, newBgColor, newAmountOfNumbers) => {
         this.setState({
           maxResult : newMaxResult,
-          operator : newOperator
-        })
-    }
+          operator : newOperator,
+          bgColor: newBgColor,
+          amountOfNumbers: newAmountOfNumbers
+        });
+    };
     
     render () {
         const { authenticateUser, removeError, errors, currentUser } = this.props;
-        const { amountOfNumbers, operator, maxResult } = this.state;
+        const { amountOfNumbers, operator, maxResult, bgColor } = this.state;
+        const title = operator === "addition" 
+        ? "Yhteenlaskut 0–" 
+        : operator === "substraction" 
+        ? "Vähennyslaskut  0–" 
+        : operator === "multiplication"
+        ? "Kertotaulut"
+        : operator === "division" ? "Jakolaskut  0–"
+        : "Looppi - Tervetuloa";
         return (
             <main>
+                <AppNavbar titleText={title} maxResult={ maxResult } bgColor={ bgColor }></AppNavbar>
                 <Switch>
                     <Route path="/" exact render={props => {
                     return (<Login removeError={ removeError } errors={ errors } onAuth={ authenticateUser } updateParameters={() => this.setParameters} />)}}></Route>
