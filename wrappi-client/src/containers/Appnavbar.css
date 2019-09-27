@@ -1,0 +1,21 @@
+.title {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: white;;
+    text-align: center;
+    padding: 1px;
+}
+.pink {
+    background-color: #E348C3;
+}
+.purple {
+    background-color: darkviolet;
+}
+.blue {
+    background-color: dodgerblue;
+}
+.orange {
+    background-color: orangered;
+}
+.mustard {
+    background-color:#FFDB58;
+}

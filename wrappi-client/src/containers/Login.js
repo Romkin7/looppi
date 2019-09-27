@@ -40,7 +40,10 @@ render () {
         {showStartGameButton && 
         <div><p>Tervetuloa, { this.props.currentUser.user.username }!</p>
             <ul>
-                <MenuItem />
+                <li onClick={this.props.updateParameters(10, "addition", "pink", 2)}></li>
+                <li onClick={this.props.updateParameters(10, "extraction", "pink", 2)}></li>
+                <li onClick={this.props.updateParameters(10, "multiplication", "pink", 2)}></li>
+                <li onClick={this.props.updateParameters(10, "division", "pink", 2)}></li>
             </ul>
         </div>}
         </div>
