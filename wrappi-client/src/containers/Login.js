@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import MenuItem from '../components/MenuItem/MenuItem';
+import './Login.css';
 
 class Login extends Component {
     state = {
@@ -36,22 +37,22 @@ setGameParameters = (maxResult, operator, bgColor, amountOfNumbers) => {
 render () {
     const { username, showStartGameButton } = this.state;
     return (
-        <div>
+        <main className="boxes">
         {!showStartGameButton &&
         <form onSubmit={this.submitHandler}>
             <input name="username" type="text" value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
             <button>Luo nimimerkki</button>
         </form>}
         {showStartGameButton && 
-        <div><p>Tervetuloa, { this.props.currentUser.user.username }!</p>
+        <div><h2>Tervetuloa, { this.props.currentUser.user.username }!</h2>
             <ul>
-                <MenuItem click={() => this.setGameParameters(50, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(50, "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(5, "multiplication", "purple", 2)} text="Kertotoulu 5"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(50, "division", "orange", 2)} text="Jakolaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(10, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(10, "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(5, "multiplication", "purple", 2)} text="Kertotaulu 5"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(10, "division", "orange", 2)} text="Jakolaskut 0-10"></MenuItem>
             </ul>
         </div>}
-        </div>
+        </main>
     )
 }
 }
