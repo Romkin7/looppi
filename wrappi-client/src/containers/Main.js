@@ -34,7 +34,7 @@ class Main extends Component {
         ? "Yhteenlaskut 0–" 
         : operator === "substraction" 
         ? "Vähennyslaskut  0–" 
-        : operator === "multiplication"
+        : operator === "multiplication "
         ? "Kertotaulut"
         : operator === "division" ? "Jakolaskut  0–"
         : "Looppi - Tervetuloa";

@@ -46,9 +46,9 @@ render () {
         <div><p>Tervetuloa, { this.props.currentUser.user.username }!</p>
             <ul>
                 <MenuItem click={() => this.setGameParameters(50, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(50, "extraction", "pink", 2)} text="Vähennyslaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(5, "multiplication", "pink", 2)} text="Kertotoulu 5"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(50, "division", "pink", 2)} text="Jakolaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(50, "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(5, "multiplication", "purple", 2)} text="Kertotoulu 5"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(50, "division", "orange", 2)} text="Jakolaskut 0-10"></MenuItem>
             </ul>
         </div>}
         </div>

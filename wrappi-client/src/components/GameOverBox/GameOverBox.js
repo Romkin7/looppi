@@ -14,12 +14,5 @@ const GameOverBox = (props) => {
         </div>
     )
 }
-    
-
-
- }
-}
-
-
 
 export default GameOverBox;
