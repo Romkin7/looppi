@@ -21,6 +21,9 @@ code {
 .App {
   height: 100vh;
 }
+main {
+  background: url('./chalkboard-517818_1920.jpg') no-repeat center center fixed;
+}
 .mainContainer {
   height: inherit;
 }
@@ -33,4 +36,5 @@ header, .displayResults {
 .boxes {
   height: 75.5vh;
 }
+
 
