@@ -49,17 +49,17 @@ class Game extends Component {
       answerHandler = (answer) => {
         if(this.state.result === answer) {
           this.setState({
-            rightAnswers: this.state.rightAnswers++,
+            rightAnswers: this.state.rightAnswers + 1,
             success: true,
             wrong: false
-          })
+          });
           this.createCalculation(2, this.addition, 10);
         } else if (this.state.wrongAnswers < 1){
           this.setState({
-            wrongAnswers: this.state.wrongAnswers++,
+            wrongAnswers: this.state.wrongAnswers + 1,
             success: false,
             wrong: true
-          })
+          });
         } else {
           this.setState({
             wrongAnswers: 0,
@@ -71,9 +71,6 @@ class Game extends Component {
       }
 
     render() {
-        const { answer } = this.state;
-        const { maxResult, operator } = this.props;
-
         return (
             <main className="calcContainer">
               <div className="boxes">

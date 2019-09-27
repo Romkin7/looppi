@@ -18,6 +18,7 @@ class Main extends Component {
     }
     
     setParameters = (newMaxResult, newOperator, newBgColor, newAmountOfNumbers) => {
+        console.log(newAmountOfNumbers, newMaxResult);
         this.setState({
           maxResult : newMaxResult,
           operator : newOperator,
@@ -38,14 +39,14 @@ class Main extends Component {
         : operator === "division" ? "Jakolaskut  0–"
         : "Looppi - Tervetuloa";
         return (
-            <main>
+            <div>
                 <AppNavbar titleText={title} maxResult={ maxResult } bgColor={ bgColor }></AppNavbar>
                 <Switch>
                     <Route path="/" exact render={props => {
-                    return (<Login removeError={ removeError } errors={ errors } onAuth={ authenticateUser } updateParameters={() => this.setParameters} />)}}></Route>
+                    return (<Login removeError={ removeError } errors={ errors } onAuth={ authenticateUser } updateParameters={() => this.setParameters(10, "addition", "blue", 2)} />)}}></Route>
                     <Route path="/peli" render={props => <Game amountOfNumbers={amountOfNumbers} operator={operator} maxResult={maxResult} />}></Route>
                 </Switch>
-            </main>
+            </div>
         )
     }    
         
