@@ -94,8 +94,8 @@ class Game extends Component {
               <div className="displayResults">
                 <div><button className="endButton">Lopeta</button></div>
                 <div className="showResults">
-                  <p>Suoritettuja laskuja:</p>
-                  <p>Kulunut aika:</p>
+                  Suoritettuja laskuja:
+                  Kulunut aika:
                 </div>
               </div>
               {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ this.state.currentUser.user.username }></GameOverBox>}

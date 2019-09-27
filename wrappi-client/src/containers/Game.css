@@ -25,20 +25,16 @@
 }
 
 .displayResults {
-    display: flex;
+    display: inline-block;
+    width: 100%;
     background-color: #28C349;
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;
     padding: 1px;
 }
 
-.showResults {
-    display: inline-block;
-    text-align: center;
-}
-
 .endButton {
-    display: inline-block;
+    display: fixed;
     background-color: white;
     border: 1px solid white;
     padding: 10px;
@@ -46,6 +42,12 @@
     color: red;
     font-weight: bold;
     text-align: center;
-    margin: 20px;
+
 }
+
+.showResults {
+    text-align: center;
+}
+
+
 
