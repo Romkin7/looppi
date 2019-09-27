@@ -72,8 +72,14 @@ class Game extends Component {
           });
           this.createCalculation(2, this.addition, 10);
         }
-      }
+    }
 
+    stopGameHandler = () => {
+      this.setState({
+        gameOver: true
+      });
+    }
+    
     render() {
         return (
             <main className="calcContainer">
@@ -92,13 +98,13 @@ class Game extends Component {
                    />
               </div>
               <div className="displayResults">
-                <div><button className="endButton">Lopeta</button></div>
+                <div><button onClick={this.stopGameHandler} className="endButton">Lopeta</button></div>
                 <div className="showResults">
                   Suoritettuja laskuja:
                   Kulunut aika:
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ this.state.currentUser.user.username }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ this.state.currentUser.user }></GameOverBox>}
             </main> 
         );
     }
