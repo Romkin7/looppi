@@ -1,24 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './NumberBox.css';
 
 
-const NumberBox = (props) => {
-    if(props.result === true) {
-        return(
-            <div>
-                <form>
-                    <input className="box" type="text" defaultValue={props.rightResult} /><h1>{props.result}</h1>
-                    <button type="submit" defaultValue="submit">Tarkista</button>
-                </form>
-            </div>
-        )
-    } else {
-        return(
-            <div className="box">
-                <h2>{props.number}</h2>
-            </div>
-        )
+class NumberBox extends Component{
+   constructor(props) {
+       super(props);
+       this.state = {
+           input: {
+                answer: ""
+           }
+       };
+   }
+   changeHandler = (event) => {
+       this.setState({
+            input: { 
+                [event.target.name] : Number(event.target.value)
+            }    
+        });
+    } 
+
+    submitHandler = (event) => {
+        event.preventDefault();
+        this.props.submit(this.state.input.answer);
+    }
     
+   render() {
+        const  { maxResult, result, number, success, wrong } = this.props;
+        const { answer } = this.state.input;
+        if(result > 0) {
+            return( 
+                <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
+                    <form onSubmit={this.submitHandler}>
+                        <input name="answer" type="number" min="0" max={maxResult} value={ answer } onChange={this.changeHandler} />
+                        <button>Tarkista</button>
+                    </form>
+                </div>
+            )
+        } else {
+            return(
+                <div className="box">
+                    <h2>{ number }</h2>
+                </div>
+            )
+        
+        }
     }
 }
 

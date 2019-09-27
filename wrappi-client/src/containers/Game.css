@@ -6,6 +6,7 @@
     background: url('../chalkboard-517818_1920.jpg') no-repeat center center fixed;
     background-size: cover;
     align-items: center;
+    text-align: center;
     justify-content: center;
     color: white;
 }
@@ -20,25 +21,41 @@
 
 .boxes {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .operatorSpace {
-    width: 10%;
-    height: 10%;
+    display: inline-block;
+    width: 50px;
+    height: 100px;
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
 }
 
 .displayResults {
+    display: flex;
     background-color: #28C349;
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;
     padding: 1px;
 }
 
-p {
+.showResults {
+    display: inline-block;
     text-align: center;
 }
+
+.endButton {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+}
+
