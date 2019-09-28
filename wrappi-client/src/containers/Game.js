@@ -73,14 +73,6 @@ class Game extends Component {
       componentDidMount() {
         this.startCalculation();
       }
-
-      componentDidUpdate() {
-        if(this.state.rightAnswers === 0 || this.state.wrongAnswers === 0) {
-          return;
-        } else {
-          setTimeout(this.startCalculation, 2000);
-        }
-      }
       
       answerHandler = (answer) => {
         if(this.result === answer) {
@@ -88,6 +80,8 @@ class Game extends Component {
           this.wrong = false;
           this.setState({
             rightAnswers: this.state.rightAnswers + 1
+          }, () => {
+            setTimeout(this.startCalculation, 2000);
           });
         } else if (this.state.wrongAnswers < 1){
           this.success = false;
