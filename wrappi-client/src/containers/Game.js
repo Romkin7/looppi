@@ -10,14 +10,10 @@ class Game extends Component {
         super(props);
         this.state = {
             // time: 0,
-            numbers: [],
-            result: 0,
             inputValid: false,
             rightAnswers: 0,
             wrongAnswers: 0,
             tries: 2,
-            success: false,
-            wrong: false,
             gameOver: false
           }
         }
@@ -26,43 +22,78 @@ class Game extends Component {
       }
       
       addition = (accumulator, currentValue) => accumulator + currentValue;
-      createCalculation = (amountOfNumbers, operator, maxResult) => {
-        if (this.state.numbers.length < amountOfNumbers) {
-            this.setState({numbers: this.state.numbers.push(this.getRandomNumber(0,10))});
-            this.createCalculation(amountOfNumbers, operator, maxResult);
-        } else if (maxResult < this.state.numbers.reduce(this.addition)) {
-            this.setState({numbers: this.state.numbers.pop()});
-            this.createCalculation(amountOfNumbers, operator, maxResult);
+      substraction = (accumulator, currentValue) => accumulator - currentValue;
+      multiplication = (accumulator, currentValue) => accumulator * currentValue;
+      division = (accumulator, currentValue) => accumulator / currentValue;
+      numbers = [];
+      result = 0;
+      success = false;
+      wrong = false;
+      currentOperator = false;
+      /** CreateCalculation function that creates new math assignment */
+      createCalculation = (amountOfNumbers, operator, maxResult, min, max, multiplier) => {
+        if(multiplier && this.numbers.length < 1) {
+          this.numbers.push(multiplier);
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
+        } else if (this.numbers.length < amountOfNumbers) {
+          this.numbers.push(this.getRandomNumber(min,max));
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
+        } else if(maxResult && maxResult === 0 && this.numbers.reduce(operator) < maxResult) {
+          this.numbers.sort((function(a, b){return b-a}));
+        } else if(maxResult && maxResult > 0 && maxResult < this.numbers.reduce(this.addition)) {
+          this.numbers.pop();
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
+        } else if(this.numbers.length === amountOfNumbers) {
+          this.result = this.numbers.reduce(operator);
+          this.numbers = this.numbers;
+          this.success = false;
+          this.wrong = false;
+          this.setState({
+            tries: 2
+          });
+          return;
         } else {
-            this.setState({
-              result: this.state.numbers.reduce(this.addition),
-              numbers: this.state.numbers,
-              success: false,
-              wrong: false
-            });
-            return;
+          return;
         }
+      }
+
+      startCalculation() {
+        // Kutsutaan funktiota ja syötetään siihen parametrit:
+        // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
+        this.currentOperator = this.currentOperator || this.props.operator === "addition" 
+          ? this.addition 
+          : this.props.operator === "substraction" 
+          ? this.substraction 
+          : this.props.operator === "multiplication"
+          ? this.multiplication
+          : this.substraction; 
+        this.createCalculation(2, this.currentOperator, this.props.maxResult, this.props.min, this.props.max, this.props.multiplier);
       }
       
       componentDidMount() {
-        // Kutsutaan funktiota ja syötetään siihen parametrit:
-        // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
-        this.createCalculation(2, this.addition, 10);
+        this.startCalculation();
+      }
+
+      componentDidUpdate() {
+        if(this.state.rightAnswers === 0 || this.state.wrongAnswers === 0) {
+          return;
+        } else {
+          setTimeout(this.startCalculation, 2000);
+        }
       }
       
       answerHandler = (answer) => {
-        if(this.state.result === answer) {
+        if(this.result === answer) {
+          this.success = true;
+          this.wrong = false;
           this.setState({
-            rightAnswers: this.state.rightAnswers + 1,
-            success: true,
-            wrong: false
+            rightAnswers: this.state.rightAnswers + 1
           });
-          //this.createCalculation(2, this.addition, 10);
         } else if (this.state.wrongAnswers < 1){
+          this.success = false;
+          this.wrong = true;
           this.setState({
-            wrongAnswers: this.state.wrongAnswers + 1,
-            success: false,
-            wrong: true
+            wrongAnswers: this.state.wrongAnswers + 1
           });
         } else {
           this.setState({
@@ -81,26 +112,33 @@ class Game extends Component {
     }
     
     render() {
+        const operatorDisplay =  this.props.operator === "addition" 
+        ? "+" 
+        : this.props.operator === "substraction" 
+        ? "-"
+        : this.props.operator === "multiplication"
+        ? "*"
+        : "/"; 
         return (
             <main className="calcContainer">
               <div className="boxes">
-                <NumberBox number={this.state.numbers[0]} result={false} />
-                <p className="operatorSpace">+</p>
-                <NumberBox number={this.state.numbers[1]} result={false} />
+                <NumberBox number={this.numbers[0]} result={false} />
+                <p className="operatorSpace">{operatorDisplay}</p>
+                <NumberBox number={this.numbers[1]} result={false} />
                 <p className="operatorSpace">=</p>
                 <NumberBox
-                  success={this.state.success}
-                  wrong={this.state.wrong}
-                  maxResult={this.state.maxResult}
-                  result={this.state.result} 
-                  rightResult={this.state.result}
+                  success={this.success}
+                  wrong={this.wrong}
+                  maxResult={this.maxResult}
+                  result={this.result} 
+                  rightResult={this.result}
                   submit={this.answerHandler}
                    />
               </div>
               <div className="displayResults">
                 <div><button onClick={this.stopGameHandler} className="endButton">Lopeta</button></div>
                 <div className="showResults">
-                  Suoritettuja laskuja:
+                  Suoritettuja laskuja: {this.state.rightAnswers}
                   Kulunut aika:
                 </div>
               </div>

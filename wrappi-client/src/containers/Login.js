@@ -30,8 +30,8 @@ submitHandler = (event) => {
     });
 }; 
 
-setGameParameters = (maxResult, operator, bgColor, amountOfNumbers) => {
-    this.props.updateParameters(maxResult, operator, bgColor, amountOfNumbers);
+setGameParameters = (maxResult, min, max, multiplier, operator, bgColor, amountOfNumbers) => {
+    this.props.updateParameters(maxResult, operator, bgColor, amountOfNumbers, min, max, multiplier);
 };
 
 render () {
@@ -46,10 +46,10 @@ render () {
         {showStartGameButton && 
         <div><p>Tervetuloa, { this.props.currentUser.user.user }!</p>
             <ul>
-                <MenuItem click={() => this.setGameParameters(10, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(10, "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(5, "multiplication", "purple", 2)} text="Kertotaulu 5"></MenuItem>
-                <MenuItem click={() => this.setGameParameters(10, "division", "orange", 2)} text="Jakolaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(10, 0, 10, false, "addition", "pink", 2)} text="Yhteenlaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0-10"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(false, 0, 10, 5, "multiplication", "purple", 2)} text="Kertotaulu 5"></MenuItem>
+                <MenuItem click={() => this.setGameParameters(0, 0, 10, false, "division", "orange", 2)} text="Jakolaskut 0-10"></MenuItem>
             </ul>
         </div>}
         </main>
