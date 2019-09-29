@@ -51,7 +51,6 @@ class Game extends Component {
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(numbers.length === amountOfNumbers) {
           result = numbers.reduce(operator);
-          numbers = numbers;
           success = false;
           wrong = false;
           this.setState({
