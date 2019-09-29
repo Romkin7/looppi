@@ -1,0 +1,26 @@
+header {
+    margin-bottom: 10px;
+}
+
+.title {
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: white;;
+    text-align: center;
+    line-height: 52px;
+    padding: 1px;
+}
+.pink {
+    background-color: #E348C3;
+}
+.purple {
+    background-color:#A50DD8;
+}
+.blue {
+    background-color: #0FA1F7;
+}
+.orange {
+    background-color: #f65600;
+}
+.mustard {
+    background-color:#C39628;
+}

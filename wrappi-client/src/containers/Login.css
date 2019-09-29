@@ -1,0 +1,35 @@
+h2, a, p {
+    color: white;
+    font-size: 1.5em;
+    margin: 5px;
+}
+
+form.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+  align-items: center;
+  justify-content: center;
+}
+
+form.loginForm > input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: inherit;
+  background: url('../chalkboard-517818_1920.jpg') no-repeat center center fixed;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
