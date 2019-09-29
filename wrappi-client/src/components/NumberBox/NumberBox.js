@@ -22,6 +22,15 @@ class NumberBox extends Component{
     submitHandler = (event) => {
         event.preventDefault();
         this.props.submit(this.state.input.answer);
+        setTimeout(this.emptyInputHandler, 1900);
+    }
+
+    emptyInputHandler = () => {
+        this.setState({
+            input: {
+                answer: ""
+            }
+        });
     }
     
    render() {
