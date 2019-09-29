@@ -11,13 +11,13 @@
     color: white;
     font-family: 'Quicksand', sans-serif;   
     font-size: 2.5em;
-    line-height: 20px;
+    padding: 15px;
 }
 
 button {
     background-color: #28C349;
     border: 1px solid #28C349;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 10px;
     border-radius: 5px;
     color: white;
@@ -31,7 +31,7 @@ form.boxForm {
 }
 
 input.number {
-    height: inherit;
+    height: 90px;
     width: inherit;
     border: none;
     background: transparent;
