@@ -39,7 +39,7 @@ render () {
     return (
         <main className="boxes">
         {!showStartGameButton &&
-        <form onSubmit={this.submitHandler}>
+        <form className="loginForm" onSubmit={this.submitHandler}>
             <input name="username" type="text" value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
             <button>Luo nimimerkki</button>
         </form>}

@@ -30,7 +30,7 @@ class NumberBox extends Component{
         if(result > 0) {
             return( 
                 <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
-                    <form onSubmit={this.submitHandler}>
+                    <form className="boxForm" onSubmit={this.submitHandler}>
                         <input className="number" name="answer" type="number" min="0" max={maxResult === 0 ? "" : maxResult} value={ answer } onChange={this.changeHandler} />
                         <button>Tarkista</button>
                     </form>
