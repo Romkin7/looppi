@@ -46,7 +46,7 @@ class Game extends Component {
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(maxResult && maxResult === 0 && numbers.reduce(operator) < maxResult) {
           numbers.sort((function(a, b){return b-a}));
-        } else if(maxResult && maxResult > 0 && maxResult < numbers.reduce(this.addition)) {
+        } else if(maxResult && maxResult > 0 && maxResult < numbers.reduce(operator)) {
           numbers.pop();
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(numbers.length === amountOfNumbers) {
