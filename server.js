@@ -26,7 +26,7 @@
 // all requests that we will send to port 8080 and later in production.
 
 //require database and connect to it
-require("./dbConnection");
+//require("./dbConnection");
 //Setup web apps dependencies
 const express = require('express');
 const morgan = require('morgan');

@@ -4,9 +4,9 @@ import './MenuItem.css';
 
 const MenuItem = ({text, click, bgColor }) => {
     return (
-        <li>
+        <div className={'linkItem' + bgColor}>
             <Link to="/peli" onClick={click}>{text}</Link>
-        </li>
+        </div>
     )
 }
 

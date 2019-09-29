@@ -42,7 +42,7 @@ class Main extends Component {
         : operator === "multiplication"
         ? "Kertotaulut "
         : operator === "division" ? "Jakolaskut 0–10"
-        : "Looppi - Tervetuloa";
+        : "Looppi - Laskuja lapsille";
         return (
             <div className="mainContainer">
                 <AppNavbar titleText={title} maxResult={ maxResult === 0 ? "" : maxResult } bgColor={ bgColor }></AppNavbar>

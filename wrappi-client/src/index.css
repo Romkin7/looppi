@@ -10,21 +10,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 html, body, .App, main {
+  background: url('./chalkboard-517818_1920.jpg') no-repeat center center fixed;
   padding: 0;
   margin: 0;
   font-size: 16px;
 }
+
+.App {
+  height: 100vh;
+}
+
+body {
+  height: inherit;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.App {
-  height: 100vh;
-}
-main {
-  background: url('./chalkboard-517818_1920.jpg') no-repeat center center fixed;
-}
+
 .mainContainer {
   height: inherit;
 }
@@ -35,7 +41,7 @@ header, .displayResults {
   height: 6rem;
 }
 .boxes {
-  height: 75.5vh;
+  height: 73vh;
 }
 button, input {
   outline: none;

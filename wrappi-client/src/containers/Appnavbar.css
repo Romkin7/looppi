@@ -1,7 +1,12 @@
+header {
+    margin-bottom: 10px;
+}
+
 .title {
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;;
     text-align: center;
+    line-height: 52px;
     padding: 1px;
 }
 .pink {
