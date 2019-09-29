@@ -4,6 +4,21 @@ import './Game.css';
 import { connect } from "react-redux";
 
 import GameOverBox from "../components/GameOverBox/GameOverBox";
+let result = 0;
+let success = false;
+let wrong = false;
+let currentOperator = false;
+let operatorDisplay = "";
+let min = 0;
+let max = 0;
+let multiplier = false;
+let maxResult = "";
+let numbers = [];
+
+const addition = (accumulator, currentValue) => accumulator + currentValue;
+const substraction = (accumulator, currentValue) => accumulator - currentValue;
+const multiplication = (accumulator, currentValue) => accumulator * currentValue;
+const division = (accumulator, currentValue) => accumulator / currentValue;
 
 class Game extends Component {
     constructor(props) {
@@ -21,33 +36,24 @@ class Game extends Component {
           return Math.floor(Math.random() * (max - min +1) + min);
       }
       
-      addition = (accumulator, currentValue) => accumulator + currentValue;
-      substraction = (accumulator, currentValue) => accumulator - currentValue;
-      multiplication = (accumulator, currentValue) => accumulator * currentValue;
-      division = (accumulator, currentValue) => accumulator / currentValue;
-      numbers = [];
-      result = 0;
-      success = false;
-      wrong = false;
-      currentOperator = false;
       /** CreateCalculation function that creates new math assignment */
       createCalculation = (amountOfNumbers, operator, maxResult, min, max, multiplier) => {
-        if(multiplier && this.numbers.length < 1) {
-          this.numbers.push(multiplier);
+        if(multiplier && numbers.length < 1) {
+          numbers.push(multiplier);
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
-        } else if (this.numbers.length < amountOfNumbers) {
-          this.numbers.push(this.getRandomNumber(min,max));
+        } else if (numbers.length < amountOfNumbers) {
+          numbers.push(this.getRandomNumber(min,max));
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
-        } else if(maxResult && maxResult === 0 && this.numbers.reduce(operator) < maxResult) {
-          this.numbers.sort((function(a, b){return b-a}));
-        } else if(maxResult && maxResult > 0 && maxResult < this.numbers.reduce(this.addition)) {
-          this.numbers.pop();
+        } else if(maxResult && maxResult === 0 && numbers.reduce(operator) < maxResult) {
+          numbers.sort((function(a, b){return b-a}));
+        } else if(maxResult && maxResult > 0 && maxResult < numbers.reduce(operator)) {
+          numbers.pop();
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
-        } else if(this.numbers.length === amountOfNumbers) {
-          this.result = this.numbers.reduce(operator);
-          this.numbers = this.numbers;
-          this.success = false;
-          this.wrong = false;
+        } else if(numbers.length === amountOfNumbers) {
+          result = numbers.reduce(operator);
+          numbers = numbers;
+          success = false;
+          wrong = false;
           this.setState({
             tries: 2
           });
@@ -57,45 +63,51 @@ class Game extends Component {
         }
       }
 
-      startCalculation() {
+      startCalculation = () => {
         // Kutsutaan funktiota ja syötetään siihen parametrit:
         // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
-        this.currentOperator = this.currentOperator || this.props.operator === "addition" 
-          ? this.addition 
+        console.log(numbers, success);
+        numbers = [];
+        currentOperator =  currentOperator ? currentOperator : this.props.operator === "addition" 
+          ? addition 
           : this.props.operator === "substraction" 
-          ? this.substraction 
+          ? substraction 
           : this.props.operator === "multiplication"
-          ? this.multiplication
-          : this.substraction; 
-        this.createCalculation(2, this.currentOperator, this.props.maxResult, this.props.min, this.props.max, this.props.multiplier);
+          ? multiplication
+          : division; 
+        this.createCalculation(2, currentOperator, maxResult, min, max, multiplier);
       }
       
       componentDidMount() {
+        maxResult = this.props.maxResult;
+        min = this.props.min;
+        max = this.props.max;
+        multiplier = this.props.multiplier;
         this.startCalculation();
       }
       
       answerHandler = (answer) => {
-        if(this.result === answer) {
-          this.success = true;
-          this.wrong = false;
+        if(result === answer) {
+          success = true;
+          wrong = false;
           this.setState({
             rightAnswers: this.state.rightAnswers + 1
           }, () => {
             setTimeout(this.startCalculation, 2000);
           });
         } else if (this.state.wrongAnswers < 1){
-          this.success = false;
-          this.wrong = true;
+          success = false;
+          wrong = true;
           this.setState({
             wrongAnswers: this.state.wrongAnswers + 1
           });
         } else {
+          success = false;
+          wrong = true;
           this.setState({
-            wrongAnswers: 0,
-            success: false,
-            wrong: true
+            wrongAnswers: 0
           });
-          this.createCalculation(2, this.addition, 10);
+          this.startCalculation();
         }
     }
 
@@ -106,7 +118,7 @@ class Game extends Component {
     }
     
     render() {
-        const operatorDisplay =  this.props.operator === "addition" 
+        operatorDisplay = operatorDisplay ? operatorDisplay : this.props.operator === "addition" 
         ? "+" 
         : this.props.operator === "substraction" 
         ? "-"
@@ -116,24 +128,25 @@ class Game extends Component {
         return (
             <main className="calcContainer">
               <div className="boxes">
-                <NumberBox number={this.numbers[0]} result={false} />
+                <NumberBox number={numbers[0]} result={false} />
                 <p className="operatorSpace">{operatorDisplay}</p>
-                <NumberBox number={this.numbers[1]} result={false} />
+                <NumberBox number={numbers[1]} result={false} />
                 <p className="operatorSpace">=</p>
                 <NumberBox
-                  success={this.success}
-                  wrong={this.wrong}
-                  maxResult={this.maxResult}
-                  result={this.result} 
-                  rightResult={this.result}
+                  success={success}
+                  wrong={wrong}
+                  maxResult={maxResult}
+                  result={result} 
+                  rightResult={result}
                   submit={this.answerHandler}
+                  operator={currentOperator}
                    />
               </div>
               <div className="displayResults">
                 <div><button onClick={this.stopGameHandler} className="endButton">Lopeta</button></div>
                 <div className="showResults">
-                  Suoritettuja laskuja: {this.state.rightAnswers}
-                  Kulunut aika:
+                  <h5>Suoritettuja laskuja: {this.state.rightAnswers}</h5>
+                  <h5>Kulunut aika: </h5>
                 </div>
               </div>
               {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ this.state.currentUser.user }></GameOverBox>}
