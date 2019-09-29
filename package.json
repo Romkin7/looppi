@@ -8,7 +8,8 @@
     "test": "npm run test",
     "client": "npm start --prefix wrappi-client",
     "server": "nodemon bin/dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix wrappi-client && npm run build --prefix wrappi-client"
   },
   "repository": {
     "type": "git",
