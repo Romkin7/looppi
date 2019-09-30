@@ -18,9 +18,10 @@ export function authenticateUser(type, userData) {
         return new Promise((resolve, reject) => {
             return apiCall("post", "/login", userData)
             .then(({token, ...user}) => {
+                console.log(user);
                 localStorage.setItem('jwtToken', token);
                 setAuthorizationToken(token);
-                dispatch(setCurrentUser(user).bind(this));
+                dispatch(setCurrentUser(user));
                 dispatch(removeError());
                 resolve();
             })

@@ -53,7 +53,7 @@ class Main extends Component {
                     <Route path="/peli" render={
                         props => <Game amountOfNumbers={amountOfNumbers} 
                             operator={operator} maxResult={maxResult} 
-                            min={min} max={max} multiplier={multiplier} />}></Route>
+                            min={min} max={max} multiplier={multiplier} user={currentUser} />}></Route>
                 </Switch>
             </div>
         )
