@@ -67,7 +67,7 @@ app.use(authRoutes);
 if(process.env.NODE_ENV === "production") {
     app.use(express.static("wrappi-client/build"));
     app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, 'build', "index.html"));
+        res.sendFile(path.resolve('./wrappi-client', 'build', "index.html"));
     });
 }
 
