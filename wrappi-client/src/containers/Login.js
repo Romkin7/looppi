@@ -22,7 +22,7 @@ nameHandler = (event) => {
 
 submitHandler = (event) => {
     event.preventDefault();
-    this.props.onAuth("login", this.state.userdata).then((res) => {
+    this.props.onAuth("login", this.state.userdata).then(() => {
         this.setState({
             showStartGameButton: true
         });
@@ -52,6 +52,7 @@ render () {
                 <MenuItem click={() => this.setGameParameters(10, 0, 10, false, "addition", "pink", 2)} text="Yhteenlaskut 0–10" bgColor=' pink'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0–10" bgColor=' blue'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 5, "multiplication", "purple", 2)} text="Kertotaulu 5" bgColor=' purple'></MenuItem>
+                <MenuItem click={() => this.setGameParameters(false, 0, 10, 4, "multiplication", "purple", 2)} text="Kertotaulu 5" bgColor=' purple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(0, 0, 10, false, "division", "orange", 2)} text="Jakolaskut 0–10" bgColor=' orange'></MenuItem>
             </ul>
         </div>}
