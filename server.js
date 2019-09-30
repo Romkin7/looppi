@@ -30,6 +30,7 @@
 //Setup web apps dependencies
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const errorHandler = require("./handlers/errorHandler");
@@ -40,6 +41,8 @@ const authRoutes = require('./routes/login');
 //Initialize express application
 const app = express();
 
+//use cors
+app.use(cors());
 // Set port and ip for webapp
 app.set("port", process.env.PORT);
 app.set("ip", process.env.IP);
@@ -62,7 +65,7 @@ app.use(authRoutes);
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static("./wrappi-client/build"));
+    app.use(express.static("wrappi-client/build"));
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, 'wrappi-client', 'build', "index.html"));
     });
