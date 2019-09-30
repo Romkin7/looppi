@@ -3,10 +3,10 @@ import { SET_CURRENT_USER } from "../actionTypes";
 import { addError, removeError } from "./errors";
 
 export function setCurrentUser(user) {
-    return {
+    return ({
         type: SET_CURRENT_USER,
         user
-    };
+    });
 }
 
 export function setAuthorizationToken(token) {
