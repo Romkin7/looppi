@@ -2,13 +2,13 @@
 
 .calcContainer {
     width: 100%;
-
     background-size: cover;
     align-items: center;
     text-align: center;
     justify-content: center;
     color: white;
 }
+
 .boxes {
     display: flex;
     justify-content: center;
