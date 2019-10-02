@@ -30,10 +30,9 @@ button.back {
 .title {
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
     line-height: 25px;
-    padding: 1px;
 }
 .pink {
     background-color: #E348C3;
