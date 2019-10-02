@@ -43,3 +43,7 @@ ul.folded {
 ul.unfolded {
   max-height: 300px; 
 }
+
+button.dropdownBtn {
+  margin-top: 10px;
+}

@@ -14,7 +14,7 @@
     padding: 15px;
 }
 
-button {
+button.submit {
     background-color: #28C349;
     border: 1px solid #28C349;
     margin-top: 30px;
