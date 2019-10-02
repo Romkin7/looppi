@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import MenuItem from '../components/MenuItem/MenuItem';
@@ -73,4 +74,5 @@ function mapStateToProps(state) {
         errors: state.errors
     }
 }
+
 export default connect(mapStateToProps, { })(Login);
