@@ -43,13 +43,10 @@ class Game extends Component {
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if (numbers.length < amountOfNumbers) {
           numbers.push(this.getRandomNumber(min,max));
-          if(numbers.length === 2) {
-            return;
-          } else {
-            this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
-          }
-        } else if(maxResult && maxResult === 0 && numbers.reduce(operator) < maxResult) {
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
+        } else if(operator === substraction && maxResult === 0 && numbers.reduce(operator) < maxResult) {
           numbers.sort((function(a, b){return b-a}));
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(maxResult && maxResult > 0 && maxResult < numbers.reduce(operator)) {
           numbers.pop();
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
@@ -69,7 +66,6 @@ class Game extends Component {
       startCalculation = () => {
         // Kutsutaan funktiota ja syötetään siihen parametrit:
         // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
-        console.log(numbers, success);
         numbers = [];
         currentOperator =  currentOperator ? currentOperator : this.props.operator === "addition" 
           ? addition 
@@ -121,6 +117,8 @@ class Game extends Component {
     }
     
     render() {
+        const { currentUser } = this.props;
+
         operatorDisplay = operatorDisplay ? operatorDisplay : this.props.operator === "addition" 
         ? "+" 
         : this.props.operator === "substraction" 
@@ -152,7 +150,7 @@ class Game extends Component {
                   <h5>Kulunut aika: </h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ this.state.currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }

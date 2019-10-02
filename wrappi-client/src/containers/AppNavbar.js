@@ -7,7 +7,7 @@ const AppNavbar = ({titleText, maxResult, bgColor }) => {
         return (
             <header className={"title "+ bgColor}>
                 <aside className="sideBlock">
-                    <Link to="/"><button className="back"><i class="fas fa-arrow-left"></i></button></Link>
+                    <Link to="/"><button className="back"><i className="fas fa-arrow-left"></i></button></Link>
                 </aside>
                 <aside className="middleBlock">
                     <h1>{titleText}{maxResult}</h1>
