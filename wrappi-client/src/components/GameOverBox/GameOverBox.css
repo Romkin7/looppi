@@ -1,0 +1,25 @@
+#gameoverContainer {
+    position: fixed;
+    background-color: rgba(43, 43, 43, 0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.gameoverbox {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.gameoverbox p {
+    color: black;
+}
