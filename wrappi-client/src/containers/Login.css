@@ -12,7 +12,13 @@ form.loginForm {
   justify-content: center;
 }
 
+.menu h2, .menu p {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
+
 form.loginForm > input {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 2.5rem;
   background-color: transparent;
   border: none;
   color: white;

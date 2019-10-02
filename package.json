@@ -8,7 +8,12 @@
     "test": "npm run test",
     "client": "npm start --prefix wrappi-client",
     "server": "nodemon bin/dev",
+<<<<<<< HEAD
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix wrappi-client && npm run build --prefix wrappi-client"
+=======
     "dev": "concurrently \"npm run server\" \"npm run client\""
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
   },
   "repository": {
     "type": "git",
@@ -25,14 +30,26 @@
   "author": "Roman Tuomisto & Pauliina Veijalainen",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+=======
     "@material-ui/core": "^4.4.3",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "mysql": "^2.17.1"
   },
+<<<<<<< HEAD
+  "engines": {
+    "node": "10.16.3"
+  },
+=======
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
   "devDependencies": {
     "dotenv": "^8.1.0"
   }

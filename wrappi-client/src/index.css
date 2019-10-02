@@ -22,6 +22,10 @@ html, body, .App, main {
   height: 100vh;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 body {
   height: inherit;
 }
