@@ -11,9 +11,11 @@ form.loginForm {
   align-items: center;
   justify-content: center;
 }
+
 .menu h2, .menu p {
   font-family: 'Love Ya Like A Sister', cursive;
 }
+
 form.loginForm > input {
   font-family: 'Love Ya Like A Sister', cursive;
   font-size: 2.5rem;
@@ -33,7 +35,17 @@ form.loginForm > input {
 }
 
 ul {
+  overflow: hidden;
+  transition: all 2s ease;
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+ul.folded {
+  max-height: 0;
+}
+
+ul.unfolded {
+  max-height: 300px; 
 }

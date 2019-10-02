@@ -1,0 +1,11 @@
+footer {
+    background-color:#28C349;
+}
+
+h6 {
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: normal; 
+    text-align: center;
+    margin: 3px; 
+    color: white;
+}

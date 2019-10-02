@@ -21,9 +21,11 @@ html, body, .App, main {
 .App {
   height: 100vh;
 }
+
 button, a {
   cursor: pointer;
 }
+
 body {
   height: inherit;
 }
@@ -36,15 +38,19 @@ code {
 .mainContainer {
   height: inherit;
 }
+
 .title, .boxes, .displayResults {
   position: relative;
 }
+
 header, .displayResults {
   height: 6rem;
 }
-.boxes {
-  height: 73vh;
+
+main {
+  min-height: 73vh;
 }
+
 button, input {
   outline: none;
   font-size: 1.2rem;

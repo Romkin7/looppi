@@ -30,7 +30,10 @@
 //Setup web apps dependencies
 const express = require('express');
 const morgan = require('morgan');
+<<<<<<< HEAD
 const cors = require('cors');
+=======
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 const path = require('path');
 const bodyParser = require('body-parser');
 const errorHandler = require("./handlers/errorHandler");
@@ -41,8 +44,11 @@ const authRoutes = require('./routes/login');
 //Initialize express application
 const app = express();
 
+<<<<<<< HEAD
 //use cors
 app.use(cors());
+=======
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 // Set port and ip for webapp
 app.set("port", process.env.PORT);
 app.set("ip", process.env.IP);
@@ -61,6 +67,7 @@ if(app.get("env") === "Websiteion") {
     app.use(morgan('dev'));
 }
 
+<<<<<<< HEAD
 app.use(authRoutes);
 
 //Serve react app in production to the browser
@@ -71,6 +78,17 @@ if(process.env.NODE_ENV === "production") {
     });
 }
 
+=======
+//Serve react app in production to the browser
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static("wrappi-client/build"));
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'wrappi-client', 'build', "index.html"));
+    });
+}
+
+app.use(authRoutes);
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 app.use(errorHandler);
 
 app.listen(app.get("port"), app.get("ip"), (error) => {

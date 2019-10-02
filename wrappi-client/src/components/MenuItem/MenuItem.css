@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .linkItem {
     padding: 20px;
     margin: 10px;
@@ -10,4 +11,18 @@ a:link {
 
 a:hover {
     text-decoration: underline;
+=======
+.linkItem {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+>>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 }
