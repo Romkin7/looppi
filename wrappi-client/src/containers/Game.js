@@ -115,6 +115,14 @@ class Game extends Component {
         gameOver: true
       });
     }
+
+    closeGameOver = () => {
+      this.setState({
+        gameOver: false
+      }, () => {
+        this.props.history.push("/");
+      });
+    }
     
     render() {
         const { currentUser } = this.props;
@@ -150,7 +158,7 @@ class Game extends Component {
                   <h5>Kulunut aika: </h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox close={this.closeGameOver} rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }
