@@ -20,12 +20,25 @@ aside.middleBlock {
     justify-content: center;
 }
 
+aside i {
+    margin: 0;
+    padding: 0;
+}
+
 button.back {
     margin-top: 0; 
     background-color: transparent;
     border: 1px solid white;
     border-radius: .5rem;
     padding: 1.2rem;
+}
+button.red {
+    margin-top: 0; 
+    background-color: firebrick;
+    font-size: 0.8em;
+    border: 0;
+    border-radius: .5rem;
+    padding: 1rem;
 }
 .title {
     font-family: 'Love Ya Like A Sister', cursive;

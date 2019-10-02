@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import MenuItem from '../components/MenuItem/MenuItem';
@@ -30,7 +29,9 @@ submitHandler = (event) => {
     event.preventDefault();
     this.props.onAuth("login", this.state.userdata).then((res) => {
         this.setState({
-            showStartGameButton: true
+            userdata: {
+                username: ''
+            }
         });
     }).catch((error) => {
         return; 
@@ -58,12 +59,12 @@ render () {
     const { currentUser } = this.props;
     return (
         <main className="boxes">
-        {!showStartGameButton && !currentUser &&
+        {!currentUser.isAuthenticated &&
         <form className="loginForm" onSubmit={this.submitHandler}>
             <input name="username" type="text" value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
             <button className="submit">Luo nimimerkki</button>
         </form>}
-        { currentUser &&
+        { currentUser.isAuthenticated &&
         <div className="menu">
             <h2>Tervetuloa, { this.props.currentUser.user.user }!</h2>
             <p>Valitse laskutoimitus.</p>

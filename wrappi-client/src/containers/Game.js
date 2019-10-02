@@ -147,7 +147,7 @@ class Game extends Component {
     
     render() {
         const { currentUser } = this.props;
-        let timesInMinute = this.state.time < 60000 ? 0 : Math.floor( this.state.rightAnswers / (Math.floor(this.state.time / 60000)) );
+
         operatorDisplay = operatorDisplay ? operatorDisplay : this.props.operator === "addition" 
         ? "+" 
         : this.props.operator === "substraction" 
@@ -179,7 +179,7 @@ class Game extends Component {
                   <h5>Kulunut aika: { momoent(this.state.time).format("mm:ss") }</h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ momoent(this.state.time).format("mm:ss") } speed={ timesInMinute === 0 ? 1 : timesInMinute } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ `${Math.floor(( this.state.time / 1000) / 60) } minuuttia ${Math.floor(this.state.time / 1000)} sekuntia` } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }

@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Appnavbar.css";
 
-const AppNavbar = ({titleText, maxResult, bgColor }) => {
+const AppNavbar = ({titleText, maxResult, bgColor, logout, currentUser }) => {
     if(window.location.pathname !== "/") { 
         return (
             <header className={"title "+ bgColor}>
@@ -27,11 +28,20 @@ const AppNavbar = ({titleText, maxResult, bgColor }) => {
                     <h1>Looppi - Laskuja lapsille</h1>
                 </aside>   
                 <aside className="sideBlock">
-                <Link to="/results"><button className="back">Tulokset</button></Link>
+                    <Link to="/results"><button className="back">Tulokset</button></Link>
+                    {currentUser.isAuthenticated &&
+                    <button className="red" onClick={ logout }><i class="fas fa-door-open"></i></button>}
                 </aside> 
             </header>
         );
     }
 };
 
-export default AppNavbar;
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser,
+        errors: state.errors
+    }
+}
+
+export default connect(mapStateToProps, {})(AppNavbar);
