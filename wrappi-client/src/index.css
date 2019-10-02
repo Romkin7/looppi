@@ -34,14 +34,17 @@ code {
 .mainContainer {
   height: inherit;
 }
+
 .title, .boxes, .displayResults {
   position: relative;
 }
+
 header, .displayResults {
   height: 6rem;
 }
-.boxes {
-  height: 73vh;
+
+main {
+  min-height: 73vh;
 }
 
 button, input {
