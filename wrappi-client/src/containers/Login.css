@@ -52,4 +52,11 @@ ul.unfolded {
 
 button.dropdownBtn {
   margin-top: 10px;
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 1.6em;
+}
+
+.dropdown a {
+  margin: 0;
+  padding: 0;
 }
