@@ -30,22 +30,34 @@ button.back {
 .title {
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
     text-align: center;
-    line-height: 40px;
+    line-height: 25px;
     padding: 1px;
 }
 .pink {
     background-color: #E348C3;
 }
+.lightpink {
+    background-color: #ea76d2;
+}
 .purple {
     background-color:#A50DD8;
+}
+.lightpurple {
+    background-color: #bb4ae2;
 }
 .blue {
     background-color: #0FA1F7;
 }
+.lightblue {
+    background-color: #4bb9f9;
+}
 .orange {
     background-color: #f65600;
+}
+.lightorange {
+    background-color: #f88040;
 }
 .mustard {
     background-color:#C39628;

@@ -127,7 +127,7 @@ class Game extends Component {
         ? "-"
         : this.props.operator === "multiplication"
         ? "*"
-        : "/"; 
+        : ":"; 
         return (
             <main className="calcContainer">
               <div className="boxes">
