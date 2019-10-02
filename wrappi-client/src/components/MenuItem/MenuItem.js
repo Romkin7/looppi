@@ -4,10 +4,12 @@ import './MenuItem.css';
 
 const MenuItem = ({text, click, bgColor }) => {
     return (
-        <div className={'linkItem' + bgColor}>
-            <Link to="/peli" onClick={click}>{text}</Link>
-        </div>
-    )
+        <Link to="/peli">
+            <div onClick={click} className={'linkItem' + bgColor}>
+                {text}
+            </div>
+        </Link>
+    );
 }
 
 export default MenuItem;
