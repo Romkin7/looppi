@@ -48,12 +48,16 @@ render () {
         <div className="menu">
             <h2>Tervetuloa, { this.props.currentUser.user.user }!</h2>
             <p>Valitse laskutoimitus.</p>
-            <ul>
+
+            <button id="additionBtn" index="0" className="dropdownBtn pink">Yhteenlaskut</button>
+            <ul className="CalcMenuContainer dropdownUl0 folded" >
                 <MenuItem click={() => this.setGameParameters(10, 0, 10, false, "addition", "pink", 2)} text="Yhteenlaskut 0–10" bgColor=' pink'></MenuItem>
-                <MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0–10" bgColor=' blue'></MenuItem>
+                <MenuItem click={() => this.setGameParameters(20, 0, 20, false, "addition", "pink", 2)} text="Yhteenlaskut 0–20" bgColor=' pink'></MenuItem>
+                <MenuItem click={() => this.setGameParameters(100, 0, 100, false, "addition", "pink", 2)} text="Yhteenlaskut 0–100" bgColor=' pink'></MenuItem>
+            </ul>
+                <ul><MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0–10" bgColor=' blue'></MenuItem></ul>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 5, "multiplication", "purple", 2)} text="Kertotaulu 5" bgColor=' purple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(0, 0, 10, false, "division", "orange", 2)} text="Jakolaskut 0–10" bgColor=' orange'></MenuItem>
-            </ul>
         </div>}
         </main>
     )
