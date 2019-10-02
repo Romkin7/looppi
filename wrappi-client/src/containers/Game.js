@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import momoent from "moment";
 import NumberBox from "../components/NumberBox/NumberBox";
 import './Game.css';
 import { connect } from "react-redux";
@@ -29,13 +31,17 @@ class Game extends Component {
             rightAnswers: 0,
             wrongAnswers: 0,
             tries: 2,
-            gameOver: false
+            gameOver: false,
+            startTime: Date.now(),
+            time: 0
           }
         }
         getRandomNumber = (min, max) => {
           return Math.floor(Math.random() * (max - min +1) + min);
       }
-      
+
+      pace = null;
+
       /** CreateCalculation function that creates new math assignment */
       createCalculation = (amountOfNumbers, operator, maxResult, min, max, multiplier) => {
         if(multiplier && numbers.length < 1) {
@@ -82,7 +88,17 @@ class Game extends Component {
         min = this.props.min;
         max = this.props.max;
         multiplier = this.props.multiplier;
+        currentOperator = false;
+        operatorDisplay = "";
         this.startCalculation();
+        this.pace = setInterval(() => {
+          let newTime =  Date.now() - this.state.startTime;
+          this.setState({
+            time: newTime
+          });
+          // alternatively just show wall clock time:
+          //output(new Date().toUTCString());
+        }, 1000); 
       }
       
       answerHandler = (answer) => {
@@ -111,11 +127,16 @@ class Game extends Component {
     }
 
     stopGameHandler = () => {
+      clearInterval(this.pace);
       this.setState({
         gameOver: true
       });
     }
 
+    componentWillUnmount() {
+      
+    }
+    
     closeGameOver = () => {
       this.setState({
         gameOver: false
@@ -126,7 +147,7 @@ class Game extends Component {
     
     render() {
         const { currentUser } = this.props;
-
+        let timesInMinute = this.state.time < 60000 ? 0 : Math.floor( this.state.rightAnswers / (Math.floor(this.state.time / 60000)) );
         operatorDisplay = operatorDisplay ? operatorDisplay : this.props.operator === "addition" 
         ? "+" 
         : this.props.operator === "substraction" 
@@ -152,13 +173,13 @@ class Game extends Component {
                    />
               </div>
               <div className="displayResults">
-                <div><button onClick={this.stopGameHandler} className="endButton">Lopeta</button></div>
+                <div><button onClick={ this.stopGameHandler } className="endButton">Lopeta</button></div>
                 <div className="showResults">
-                  <h5>Suoritettuja laskuja: {this.state.rightAnswers}</h5>
-                  <h5>Kulunut aika: </h5>
+                  <h5>Suoritettuja laskuja: { this.state.rightAnswers }</h5>
+                  <h5>Kulunut aika: { momoent(this.state.time).format("mm:ss") }</h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox close={this.closeGameOver} rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ momoent(this.state.time).format("mm:ss") } speed={ timesInMinute === 0 ? 1 : timesInMinute } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }
@@ -171,4 +192,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {})(Game);
+export default withRouter(connect(mapStateToProps, {})(Game));

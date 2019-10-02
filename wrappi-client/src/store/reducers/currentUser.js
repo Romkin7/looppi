@@ -1,8 +1,10 @@
-import { SET_CURRENT_USER } from "../actionTypes";
+import { SET_CURRENT_USER, UPDATE_CURRENT_USER } from "../actionTypes";
 
 const DEFAULT_STATE = {
     isAuthenticated: false,
-    user: {}
+    user: {},
+    result: 0,
+    time: 0
 };
 
 export default (state = DEFAULT_STATE, action) => {
