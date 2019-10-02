@@ -8,10 +8,10 @@ const GameOverBox = (props) => {
                 <h4>Hienosti laskettu!</h4>
                 <p>Teit XX laskua XX ajassa. Nopeutesi oli XX laskua minuutissa.</p>
                 <p>Lähetä tuloksesi itsellesi tai opettajallesi:</p>
-                <input type="text" value="email" placeholder="Kirjoita sähköpostiosoite"></input>            
-                <button className="submit">Lähetä</button>
-                <button className="endButton">Takaisin</button>
-
+                <input className="emailInput" type="text" placeholder="Kirjoita sähköpostiosoite"></input>            
+                <button className="sendResults submit">Lähetä</button>
+                <button className="return endButton">Takaisin</button>
+                <button onClick={props.close}>Sulje</button>
             </div>
         </div>
     )
