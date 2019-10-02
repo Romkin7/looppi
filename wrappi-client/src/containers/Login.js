@@ -83,10 +83,7 @@ render () {
              </ul>
             <button id="multiplicationBtn" index="2" className="dropdownBtn purple" onClick={this.openDropdown}>Kertotaulut</button>
              <ul className={`dropdown dropdownUl2 ${ this.state.dropdown.ul === "dropdownUl2" && this.state.dropdown.open ? "unfolded" : "folded"}`} >
-                <MenuItem click={() => this.setGameParameters(false, 0, 10, 1, "multiplication", "purple", 2)} text="Luvun 1 kertotaulu" bgColor=' lightpurple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 2, "multiplication", "purple", 2)} text="Luvun 2 kertotaulu" bgColor=' lightpurple'></MenuItem>
-                <MenuItem click={() => this.setGameParameters(false, 0, 10, 3, "multiplication", "purple", 2)} text="Luvun 3 kertotaulu" bgColor=' lightpurple'></MenuItem>
-                <MenuItem click={() => this.setGameParameters(false, 0, 10, 4, "multiplication", "purple", 2)} text="Luvun 4 kertotaulu" bgColor=' lightpurple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 5, "multiplication", "purple", 2)} text="Luvun 5 kertotaulu" bgColor=' lightpurple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 10, "multiplication", "purple", 2)} text="Luvun 10 kertotaulu" bgColor=' lightpurple'></MenuItem>
              </ul>
