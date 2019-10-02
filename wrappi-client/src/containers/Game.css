@@ -2,20 +2,12 @@
 
 .calcContainer {
     width: 100%;
-<<<<<<< HEAD
-
-=======
->>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
     background-size: cover;
     align-items: center;
     text-align: center;
     justify-content: center;
     color: white;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 .boxes {
     display: flex;
     justify-content: center;
@@ -37,10 +29,6 @@
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-<<<<<<< HEAD
-    background-color: #28C349;
-=======
->>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
     font-family: 'Love Ya Like A Sister', cursive;
     color: white;
     padding: 1px;
@@ -48,23 +36,12 @@
 
 .endButton {
     display: fixed;
-<<<<<<< HEAD
-    background-color: white;
-    border: 1px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-
-=======
     background-color: red;
     border: 1px solid red;
     padding: 10px;
     border-radius: 5px;
     color: white;
     text-align: center;
->>>>>>> bd531dc2776c35399dd62e17b6e2347f5d5a8bda
 }
 
 .showResults {
