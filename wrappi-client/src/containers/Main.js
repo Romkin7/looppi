@@ -46,11 +46,11 @@ class Main extends Component {
         : "Looppi - Laskuja lapsille";
         return (
             <div className="mainContainer">
-                <AppNavbar titleText={title} maxResult={ maxResult === 0 ? "" : maxResult } bgColor={ bgColor }></AppNavbar>
+                <AppNavbar titleText={title} maxResult={ maxResult === 0 ? "" : maxResult } bgColor={ bgColor } currentUser={currentUser}></AppNavbar>
                 <Switch>
                     <Route path="/" exact render={props => {
                     return (<Login removeError={ removeError } errors={ errors } 
-                        onAuth={ authenticateUser } updateParameters={this.setParameters} />)}}></Route>
+                        onAuth={ authenticateUser } updateParameters={this.setParameters} currentUser={currentUser} />)}}></Route>
                     <Route path="/peli" render={
                         props => <Game amountOfNumbers={amountOfNumbers} 
                             operator={operator} maxResult={maxResult} 
