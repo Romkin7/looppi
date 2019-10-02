@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = (props) => {
     return (
-        <footer className='displayResults'> 
+        <footer> 
                 <h6>{props.copyrightText}</h6>
                 <h6>{props.copyrightText2}</h6>
         </footer>
