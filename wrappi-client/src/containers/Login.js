@@ -38,14 +38,15 @@ setGameParameters = (maxResult, min, max, multiplier, operator, bgColor, amountO
 
 render () {
     const { username, showStartGameButton } = this.state;
+    const { currentUser } = this.props;
     return (
         <main className="boxes">
-        {!showStartGameButton &&
+        {!showStartGameButton && !currentUser &&
         <form className="loginForm" onSubmit={this.submitHandler}>
             <input name="username" type="text" value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
             <button>Luo nimimerkki</button>
         </form>}
-        {showStartGameButton && 
+        { currentUser &&
         <div className="menu">
             <h2>Tervetuloa, { this.props.currentUser.user.user }!</h2>
             <p>Valitse laskutoimitus.</p>
@@ -56,7 +57,8 @@ render () {
                 <MenuItem click={() => this.setGameParameters(20, 0, 20, false, "addition", "pink", 2)} text="Yhteenlaskut 0–20" bgColor=' pink'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(100, 0, 100, false, "addition", "pink", 2)} text="Yhteenlaskut 0–100" bgColor=' pink'></MenuItem>
             </ul>
-                <ul><MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0–10" bgColor=' blue'></MenuItem></ul>
+                <ul>
+                <MenuItem click={() => this.setGameParameters(0, 0, 10, false,  "substraction", "blue", 2)} text="Vähennyslaskut 0–10" bgColor=' blue'></MenuItem></ul>
                 <MenuItem click={() => this.setGameParameters(false, 0, 10, 5, "multiplication", "purple", 2)} text="Kertotaulu 5" bgColor=' purple'></MenuItem>
                 <MenuItem click={() => this.setGameParameters(0, 0, 10, false, "division", "orange", 2)} text="Jakolaskut 0–10" bgColor=' orange'></MenuItem>
         </div>}
