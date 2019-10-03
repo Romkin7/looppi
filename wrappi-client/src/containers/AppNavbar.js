@@ -27,7 +27,7 @@ class AppNavbar extends Component {
                         <h1>{titleText}{maxResult}</h1>
                     </aside>   
                     <aside className="sideBlock">
-                        <Link to="/results"><button className="back">Tulokset</button></Link>
+                        <Link to="/results"><button className="back"><i class="fas fa-user-alt fa-3x"></i></button></Link>
                     </aside> 
                 </header>
             );
