@@ -16,7 +16,7 @@ let max = 0;
 let multiplier = false;
 let maxResult = "";
 let numbers = [];
-
+let timeout;
 const addition = (accumulator, currentValue) => accumulator + currentValue;
 const substraction = (accumulator, currentValue) => accumulator - currentValue;
 const multiplication = (accumulator, currentValue) => accumulator * currentValue;
@@ -79,7 +79,10 @@ class Game extends Component {
       startCalculation = () => {
         // Kutsutaan funktiota ja syötetään siihen parametrit:
         // (arvottavien lukujen määrä, laskutoimitus ja maksimisumma)
+        clearTimeout(timeout);
         numbers = [];
+        wrong = false;
+        success = false;
         currentOperator =  currentOperator ? currentOperator : this.props.operator === "addition" 
           ? addition 
           : this.props.operator === "substraction" 
@@ -113,9 +116,10 @@ class Game extends Component {
           success = true;
           wrong = false;
           this.setState({
-            rightAnswers: this.state.rightAnswers + 1
+            rightAnswers: this.state.rightAnswers + 1,
+            wrongAnswers: 0
           }, () => {
-            setTimeout(this.startCalculation, 2000);
+            timeout = setTimeout(this.startCalculation, 1500);
           });
         } else if (this.state.wrongAnswers < 1){
           success = false;
@@ -129,7 +133,7 @@ class Game extends Component {
           this.setState({
             wrongAnswers: 0
           });
-          this.startCalculation();
+          timeout = setTimeout(this.startCalculation, 1500);
         }
     }
 

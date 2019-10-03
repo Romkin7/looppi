@@ -27,7 +27,8 @@ class AppNavbar extends Component {
                         <h1>{titleText}{maxResult}</h1>
                     </aside>   
                     <aside className="sideBlock">
-                        <Link to="/results"><button className="back"><i class="fas fa-user-alt fa-3x"></i></button></Link>
+                        {currentUser.isAuthenticated &&
+                            <button className="back" onClick={ logout }><i class="fas fa-user-alt fa-3x"></i></button>}
                     </aside> 
                 </header>
             );
@@ -41,9 +42,9 @@ class AppNavbar extends Component {
                         <h1>Looppi - Laskuja lapsille</h1>
                     </aside>   
                     <aside className="sideBlock">
-                        <Link to="/results"><button className="back"><i class="fas fa-user-alt fa-3x"></i></button></Link>
-                        {/*currentUser.isAuthenticated &&
-                        <button className="back" onClick={ logout }><i className="fas fa-door-open fa-3x"></i></button>*/}
+                        
+                        {currentUser.isAuthenticated &&
+                        <button className="back" onClick={ logout }><i class="fas fa-user-alt fa-3x"></i></button>}
                     </aside> 
                 </header>
             );

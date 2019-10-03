@@ -8,7 +8,6 @@ import { removeError } from "../store/actions/errors";
 import Login from "./Login";
 import Game from "./Game";
 import AppNavbar from "./AppNavbar";
-import Footer from "./Footer";
 
 class Main extends Component {
     constructor(props) {
@@ -64,11 +63,6 @@ class Main extends Component {
                             operator={operator} maxResult={maxResult} 
                             min={min} max={max} multiplier={multiplier} />}></Route>
                 </Switch>
-                <Footer 
-                    copyrightText="Copyright © 2019 Roman Tuomisto & Pauliina Veijalainen"
-                    copyrightText2="All rights reserved.">
-                </Footer>
-
             </div>
         )
     }    

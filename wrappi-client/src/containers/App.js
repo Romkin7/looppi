@@ -5,6 +5,7 @@ import { setAuthorizationToken, setCurrentUser } from "../store/actions/auth";
 import jwtDecode from "jwt-decode";
 import Main from "./Main";
 import {BrowserRouter as Router } from "react-router-dom";
+import Footer from './Footer';
 
 const store = configureStore();
 
@@ -24,6 +25,10 @@ const App = () => {
       <div className="App">
         <Router>
           <Main />
+          <Footer 
+                copyrightText="Copyright © 2019 Roman Tuomisto & Pauliina Veijalainen"
+                copyrightText2="All rights reserved.">
+            </Footer>
         </Router>
       </div>
     </Provider>
