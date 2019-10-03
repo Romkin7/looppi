@@ -26,18 +26,9 @@ class Main extends Component {
 
     logoutFromGame = () => {
         this.props.logout();
-        this.setState({
-            maxResult: "",
-            min: 0,
-            max: 0,
-            multiplier: 0,
-            amountOfNumbers: 2,
-            operator: "",
-            bgColor: "blue"
-        });
         this.props.history.push("/");
     }
-    
+
     setParameters = (newMaxResult, newOperator, newBgColor, newAmountOfNumbers, newMin, newMax, newMultiplier) => {
         this.setState({
           maxResult : newMaxResult,

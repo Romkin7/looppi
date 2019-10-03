@@ -9,7 +9,6 @@ class Login extends Component {
         userdata: {
             username: ''
         },
-        showStartGameButton: false,
         dropdown: {
             ul: '',
             open: false,
@@ -55,7 +54,7 @@ openDropdown = (event) => {
 }
 
 render () {
-    const { username, showStartGameButton } = this.state;
+    const { username } = this.state;
     const { currentUser } = this.props;
     return (
         <main className="boxes">

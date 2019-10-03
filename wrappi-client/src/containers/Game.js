@@ -134,7 +134,7 @@ class Game extends Component {
     }
 
     componentWillUnmount() {
-      
+      clearInterval(this.pace);
     }
     
     closeGameOver = () => {

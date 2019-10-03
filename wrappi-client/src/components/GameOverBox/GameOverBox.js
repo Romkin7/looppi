@@ -1,5 +1,4 @@
 import React from 'react';
-import { logout } from "../../store/actions/auth";
 
 import './GameOverBox.css';
 
