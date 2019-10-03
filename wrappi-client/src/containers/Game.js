@@ -186,7 +186,7 @@ class Game extends Component {
                   <h5>Kulunut aika: { momoent(this.state.time).format("mm:ss") }</h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ `${Math.floor(( this.state.time / 1000) / 60) } minuuttia ${Math.floor(this.state.time / 1000)} sekuntia` } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ `${Math.floor(( this.state.time / 1000) / 60) } minuutissa ja ${Math.floor(this.state.time / 1000)} sekunnissa` } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }
