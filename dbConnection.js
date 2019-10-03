@@ -11,3 +11,14 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
+
+// Add or get user
+module.exports.setUser = async (req, res, next) => {
+    try {
+        let user = await connection.query("SELECT Username FROM users WHERE "+req.body.username);
+    } catch(err) {
+        return next(err);
+    }
+};
+
+connection.end();
