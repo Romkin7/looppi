@@ -32,8 +32,8 @@ export function authenticateUser(type, userData) {
                 dispatch(removeError());
                 resolve();
             })
-            .catch((error) => {
-                dispatch(addError(error.message));
+            .catch((err) => {
+                dispatch(addError(err.message));
                 reject(); // kertoo että backend pyyntö epäonnistui.
             });
         });
