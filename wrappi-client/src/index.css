@@ -19,7 +19,7 @@ html, body, .App, main {
 }
 
 .App {
-  height: 100vh;
+  min-height: 85vh;
 }
 
 button, a {
@@ -36,7 +36,7 @@ code {
 }
 
 .mainContainer {
-  height: inherit;
+  min-height: 70vh; 
 }
 
 .title, .boxes, .displayResults {
@@ -48,7 +48,7 @@ header, .displayResults {
 }
 
 main {
-  min-height: 29rem;
+  min-height: 70vh;
 }
 
 button, input {

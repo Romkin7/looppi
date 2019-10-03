@@ -1,5 +1,10 @@
 footer {
     background-color:#28C349;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h6 {
@@ -8,6 +13,5 @@ h6 {
     font-weight: normal; 
     text-align: center;
     margin: 3px; 
-    padding: 10px;
     color: white;
 }

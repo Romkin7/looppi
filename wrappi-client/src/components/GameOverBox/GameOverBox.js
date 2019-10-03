@@ -6,7 +6,7 @@ const GameOverBox = ({ close, rightAnswers, elapcedTime }) => {
     return (
         <div id="gameoverContainer">
             <div className="gameoverbox">
-            <button className="closeGameover"><i class="far fa-times-circle fa-2x"></i></button>
+                <button className="closeGameover"><i class="far fa-times-circle fa-2x"></i></button>
                 <h4>Hienosti laskettu!</h4>
                 <p>Teit { rightAnswers } laskua { elapcedTime }.</p>
                 <p>Lähetä tuloksesi itsellesi tai opettajallesi:</p>

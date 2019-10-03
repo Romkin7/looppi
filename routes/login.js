@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router(); 
-const setUser = require('../dbConnection').setUser;
+//const setUser = require('../dbConnection').setUser;
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
 
