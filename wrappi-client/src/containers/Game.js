@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import momoent from "moment";
+import moment from "moment";
 import NumberBox from "../components/NumberBox/NumberBox";
 import './Game.css';
 import { connect } from "react-redux";
@@ -183,10 +183,10 @@ class Game extends Component {
                 <div><button onClick={ this.stopGameHandler } className="endButton">Lopeta</button></div>
                 <div className="showResults">
                   <h5>Suoritettuja laskuja: { this.state.rightAnswers }</h5>
-                  <h5>Kulunut aika: { momoent(this.state.time).format("mm:ss") }</h5>
+                  <h5>Kulunut aika: { moment(this.state.time).format("mm:ss") }</h5>
                 </div>
               </div>
-              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ `${Math.floor(( this.state.time / 1000) / 60) } minuuttia ${Math.floor(this.state.time / 1000)} sekuntia` } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
+              {this.state.gameOver && <GameOverBox close={this.closeGameOver} elapcedTime={ `${moment(this.state.time).format("mm")} minuuttia ${moment(this.state.time).format("ss")} sekuntia` } rightAnswers={ this.state.rightAnswers } username={ currentUser.user }></GameOverBox>}
             </main> 
         );
     }
