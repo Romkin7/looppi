@@ -5,7 +5,7 @@
     },
     "proxies": {
         "/api": {
-            "origin": "https://obscure-citadel-07182.herokuapp.com/"
+            "origin": "https://looppi-rp-es.herokuapp.com/api"
         }
     }
 }

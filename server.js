@@ -41,12 +41,13 @@ const authRoutes = require('./routes/login');
 //Initialize express application
 const app = express();
 
-//use cors
-app.use(cors());
+app.set("trust proxy", true);
 // Set port and ip for webapp
 app.set("port", process.env.PORT);
 app.set("ip", process.env.IP);
 
+//use cors
+app.use(cors());
 //Setup middleware to parse incoming requests to this web api
 app.use(bodyParser.json());
 
@@ -61,7 +62,7 @@ if(app.get("env") === "Websiteion") {
     app.use(morgan('dev'));
 }
 
-app.use(authRoutes);
+app.use("/api", authRoutes);
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
