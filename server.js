@@ -62,7 +62,7 @@ if(app.get("env") === "Websiteion") {
     app.use(morgan('dev'));
 }
 
-app.use("/api", authRoutes);
+app.use(authRoutes);
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
