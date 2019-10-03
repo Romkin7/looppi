@@ -21,7 +21,7 @@ class AppNavbar extends Component {
             return (
                 <header className={"title "+ bgColor}>
                     <aside className="sideBlock">
-                        <button className="back" onClick={this.changeGameMode}><i className="fas fa-arrow-left"></i></button>
+                        <button className="back" onClick={this.changeGameMode}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
                     </aside>
                     <aside className="middleBlock">
                         <h1>{titleText}{maxResult}</h1>
@@ -41,9 +41,9 @@ class AppNavbar extends Component {
                         <h1>Looppi - Laskuja lapsille</h1>
                     </aside>   
                     <aside className="sideBlock">
-                        <Link to="/results"><button className="back">Tulokset</button></Link>
-                        {currentUser.isAuthenticated &&
-                        <button className="red" onClick={ logout }><i className="fas fa-door-open"></i></button>}
+                        <Link to="/results"><button className="back"><i class="fas fa-user-alt fa-3x"></i></button></Link>
+                        {/*currentUser.isAuthenticated &&
+                        <button className="back" onClick={ logout }><i className="fas fa-door-open fa-3x"></i></button>*/}
                     </aside> 
                 </header>
             );

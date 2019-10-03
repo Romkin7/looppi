@@ -28,9 +28,6 @@ aside i {
 button.back {
     margin-top: 0; 
     background-color: transparent;
-    border: 1px solid white;
-    border-radius: .5rem;
-    padding: 1.2rem;
 }
 button.red {
     margin-top: 0; 

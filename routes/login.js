@@ -3,6 +3,7 @@ const router = express.Router();
 const setUser = require('../dbConnection').setUser;
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
+
 router.post("/login", async(req, res, next) => {
     try {
         let token = jwt.sign(
