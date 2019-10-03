@@ -34,11 +34,15 @@ class Game extends Component {
             gameOver: false,
             startTime: Date.now(),
             time: 0
-          }
         }
-        getRandomNumber = (min, max) => {
-          return Math.floor(Math.random() * (max - min +1) + min);
-      }
+    }
+    getRandomNumber = (min, max) => {
+      return Math.floor(Math.random() * (max - min +1) + min);
+    }
+
+    getRandomEvenNumber = (min, max) => {
+      return Math.floor( Math.random() * max / 2 ) * 2;
+    };
 
       pace = null;
 
@@ -47,13 +51,16 @@ class Game extends Component {
         if(multiplier && numbers.length < 1) {
           numbers.push(multiplier);
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
+        } else if(operator === division && numbers.length < amountOfNumbers) {
+          numbers.unshift(this.getRandomEvenNumber(min,max));
+          this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if (numbers.length < amountOfNumbers) {
           numbers.push(this.getRandomNumber(min,max));
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(operator === substraction && maxResult === 0 && numbers.reduce(operator) < maxResult) {
           numbers.sort((function(a, b){return b-a}));
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
-        } else if(maxResult && maxResult > 0 && maxResult < numbers.reduce(operator)) {
+        } else if(operator !== division && maxResult && maxResult > 0 && maxResult < numbers.reduce(operator)) {
           numbers.pop();
           this.createCalculation(amountOfNumbers, operator, maxResult, min, max, multiplier);
         } else if(numbers.length === amountOfNumbers) {

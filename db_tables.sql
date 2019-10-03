@@ -15,9 +15,10 @@ create table results(
 );
 create table users(
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    password VARCHAR(60) NOT NULL,
+    password VARCHAR(60) NOT NULL DEFAULT 'password',
     username VARCHAR(30) UNIQUE NOT NULL,
     avatar VARCHAR(300) NOT NULL DEFAULT 'images/noimage.jpg',
+    resultID INT,
     FOREIGN KEY (resultID) REFERENCES results(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
