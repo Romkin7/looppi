@@ -24,7 +24,7 @@ class AppNavbar extends Component {
                         <button className="back" onClick={this.changeGameMode}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
                     </aside>
                     <aside className="middleBlock">
-                        <h1>{titleText}{maxResult}</h1>
+                        <h1>{titleText}{maxResult === 2 ? "Lukujen puolittaminen" : maxResult}</h1>
                     </aside>   
                     <aside className="sideBlock">
                         {currentUser.isAuthenticated &&
