@@ -66,7 +66,7 @@ app.use("/api", authRoutes);
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static(__dirname, "looppi-client/build"));
+    app.use(express.static(__dirname, "/looppi-client/build"));
     app.get("*", (req, res) => {
         res.sendFile("index.html");
     });
