@@ -32,6 +32,14 @@ class NumberBox extends Component{
             }
         });
     }
+
+    componentWillUnmount() {
+        this.setState({
+            input: {
+                answer: ""
+            }
+        });
+    };
     
    render() {
         const  { maxResult, result, number, success, wrong } = this.props;
@@ -40,7 +48,7 @@ class NumberBox extends Component{
             return( 
                 <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
                     <form className="boxForm" onSubmit={this.submitHandler}>
-                        <input className="number" name="answer" type="number" step="1" max={maxResult === 0 ? "100" : String(maxResult)} min="0" value={ answer } onChange={this.changeHandler} />
+                        <input className="number" name="answer" type="tel" autoFocus required pattern="[0-9]*" data-numeric-input value={ answer } onChange={this.changeHandler} />
                         <button className="submit">Tarkista</button>
                     </form>
                 </div>
