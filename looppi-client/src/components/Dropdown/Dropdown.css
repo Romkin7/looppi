@@ -28,3 +28,12 @@ ul.navDropDownMenu.folded {
 ul.navDropDownMenu.unfolded {
     display: initial;
 }
+
+@media only screen and (max-width: 600px) {
+    ul.navDropDownMenu {
+        width: 100%;
+        left: 0;
+    
+    }
+  }
+  
