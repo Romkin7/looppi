@@ -65,7 +65,7 @@ class AppNavbar extends Component {
                     
                     </aside> 
                 </header>
-                <Dropdown username={currentUser.user.user} bgColor={bgColor} logout={this.handleLogOut} open={this.state.dropDownOpened ? this.state.dropDownOpened : false} />
+                <Dropdown username={currentUser.user.user} bgColor={"blue"} logout={this.handleLogOut} open={this.state.dropDownOpened ? this.state.dropDownOpened : false} />
                 </>
             );
         }
