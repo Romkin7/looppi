@@ -20,6 +20,10 @@ class AppNavbar extends Component {
         this.props.logout();
     };
 
+    componentWillUnmount() {
+        this.handleDropDownToggling();
+    }
+
     handleDropDownToggling = () => {
         this.setState({
             dropDownOpened: this.state.dropDownOpened ? false : true 
