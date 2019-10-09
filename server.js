@@ -41,12 +41,13 @@ const authRoutes = require('./routes/login');
 //Initialize express application
 const app = express();
 
-//use cors
-app.use(cors());
+app.set("trust proxy", true);
 // Set port and ip for webapp
 app.set("port", process.env.PORT);
 app.set("ip", process.env.IP);
 
+//use cors
+app.use(cors());
 //Setup middleware to parse incoming requests to this web api
 app.use(bodyParser.json());
 
@@ -65,7 +66,7 @@ app.use(authRoutes);
 
 //Serve react app in production to the browser
 if(process.env.NODE_ENV === "production") {
-    app.use(express.static(__dirname, "wrappi-client/build"));
+    app.use(express.static(path.join(__dirname + "/looppi-client/build")));
     app.get("*", (req, res) => {
         res.sendFile("index.html");
     });

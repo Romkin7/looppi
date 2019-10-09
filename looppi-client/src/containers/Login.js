@@ -60,7 +60,7 @@ render () {
         <main className="boxes">
         {!currentUser.isAuthenticated &&
         <form className="loginForm" onSubmit={this.submitHandler}>
-            <input name="username" type="text" value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
+            <input name="username" type="text" autoFocus required value={ username } onChange={this.nameHandler} placeholder="Kirjoita nimimerkkisi" ></input>
             <button className="submit">Luo nimimerkki</button>
         </form>}
         { currentUser.isAuthenticated &&

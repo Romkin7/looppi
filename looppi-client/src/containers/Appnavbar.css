@@ -30,6 +30,7 @@ aside.middleBlock {
 aside i {
     margin: 0;
     padding: 0;
+    font-size: 2rem;
 }
 
 button.back {
@@ -49,7 +50,7 @@ button.red {
     color: white;
     font-size: 1.5rem;
     text-align: center;
-    line-height: 40px;
+    line-height: 1.5em;
 }
 .pink {
     background-color: #E348C3;

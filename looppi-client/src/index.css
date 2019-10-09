@@ -1,4 +1,6 @@
 * {
+  padding: 0;
+  margin: 0;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -36,7 +38,7 @@ code {
 }
 
 .mainContainer {
-  min-height: 70vh; 
+  min-height: 71vh; 
 }
 
 .title, .boxes, .displayResults {
@@ -48,7 +50,7 @@ header, .displayResults {
 }
 
 main {
-  min-height: 70vh;
+  min-height: 71vh;
 }
 
 button, input {

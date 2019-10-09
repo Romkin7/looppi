@@ -1,45 +1,47 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
 .box {
-    width: 160px;
-    height: 160px;
+    width: 10rem;
+    height: 10rem;
     display: inline-block;
     background: transparent;
-    border: 3px solid white;
+    border: .18rem solid white;
     border-radius: 5%;
-    margin: 10px;
+    margin: .6rem;
     color: white;
     font-family: 'Quicksand', sans-serif;   
     font-size: 3.5em;
-    padding: 15px;
+    padding: .9rem;
 }
 
 button.submit {
     background-color: #28C349;
     border: 1px solid #28C349;
-    margin-top: 45px;
-    padding: 10px;
+    margin-top: 1.5rem;
+    padding: .6rem;
     border-radius: 5px;
     color: white;
 }
 
 form.boxForm {
-    margin: 0;
-    padding: 0;
-    width: 120px;
-    height: 120px;
+    position: relative;
+    top: -12px;
+    left: 0;
+    width: 100%;
+    height: 10rem;
 }
 
 input.number {
-    height: 120px;
-    width: inherit;
+    height: 10rem;
+    width: 100%;
     border: none;
+    line-height: .5em;
     background: transparent;
     text-align: center;
     color: white;
     font-family: 'Quicksand', sans-serif;   
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.65em;
 }
 
 .success {

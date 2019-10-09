@@ -49,7 +49,7 @@ class Main extends Component {
         ? "Vähennyslaskut 0–" 
         : operator === "multiplication"
         ? "Kertotaulut "
-        : operator === "division" ? "Jakolaskut 0–10"
+        : operator === "division" ? "Jakolaskut - "
         : "Looppi - Laskuja lapsille";
         return (
             <div className="mainContainer">
