@@ -5,7 +5,8 @@
     },
     "proxies": {
         "/api": {
-            "origin": "https://looppi-rp-es.herokuapp.com/api"
+            "origin": "https://stormy-brushlands-54762.herokuapp.com/api"
+            /*"origin" "https://looppi-rp-es.herokuapp.com/api"*/
         }
     }
 }
