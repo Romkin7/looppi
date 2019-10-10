@@ -17,7 +17,8 @@ html, body, .App, main {
   background: url('./chalkboard-517818_1920.jpg') no-repeat center center fixed;
   padding: 0;
   margin: 0;
-  font-size: 16px;
+  font-size: 0.9rem;
+  color: white;
 }
 
 .App {
@@ -32,17 +33,42 @@ body {
   height: inherit;
 }
 
+button {
+  padding: 10px 0px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+}
+
+button, input {
+  outline: none;
+  font-size: 1.2rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .mainContainer {
-  min-height: 71vh; 
+  min-height: 80vh;
 }
 
 .title, .boxes, .displayResults {
   position: relative;
+}
+
+header {
+  height: 12vh;
+}
+
+@media screen and (min-width: 568px) {
+
+html, body, .App, main {
+  font-size: 1.1rem;
+}
+.mainContainer {
+  min-height: 71vh; 
 }
 
 header, .displayResults {
@@ -52,15 +78,4 @@ header, .displayResults {
 main {
   min-height: 71vh;
 }
-
-button, input {
-  outline: none;
-  font-size: 1.2rem;
-}
-
-button {
-  padding: 10px 0px;
-  border-radius: 5px;
-  border: 0;
-  color: white;
 }

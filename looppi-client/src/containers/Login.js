@@ -65,7 +65,7 @@ render () {
         </form>}
         { currentUser.isAuthenticated &&
         <div className="menu">
-            <h2>Tervetuloa, { this.props.currentUser.user.user }!</h2>
+            <h1>Tervetuloa, { this.props.currentUser.user.user }!</h1>
             <p>Valitse laskutoimitus.</p>
 
             <button id="additionBtn" index="0" className="dropdownBtn pink" onClick={this.openDropdown}>Yhteenlaskut</button>

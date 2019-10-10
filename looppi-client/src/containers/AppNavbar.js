@@ -37,14 +37,14 @@ class AppNavbar extends Component {
                 <>
                 <header className={"title "+ bgColor}>
                     <aside className="sideBlock">
-                        <button className="back" onClick={this.changeGameMode}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+                        <button className="back" onClick={this.changeGameMode}><i class="fas fa-arrow-circle-left"></i></button>
                     </aside>
                     <aside className="middleBlock">
                         <h1>{titleText}{maxResult === 2 ? "Lukujen puolittaminen" : maxResult}</h1>
                     </aside>   
                     <aside className="sideBlock">
                         {currentUser.isAuthenticated &&
-                            <button className="back" onClick={this.handleDropDownToggling}><i class="fas fa-user-alt fa-3x"></i></button>}
+                            <button className="back" onClick={this.handleDropDownToggling}><i class="fas fa-user-alt"></i></button>}
                         
                         <Dropdown username={currentUser.user.user} bgColor={bgColor} logout={this.handleLogOut} open={this.state.dropDownOpened ? this.state.dropDownOpened : false} />
                         
