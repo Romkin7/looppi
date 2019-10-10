@@ -24,13 +24,13 @@ class NumberBox extends Component{
         event.preventDefault();
         this.props.submit(this.state.input.answer);
         setTimeout(this.emptyInputHandler, 1900);
+        this.answerInput.current.focus();
     }
 
     emptyInputHandler = () => {
         this.setState({
             input: {
-                answer: "",
-                ref: this.answerInput.current
+                answer: ""
             }
         });
     }
