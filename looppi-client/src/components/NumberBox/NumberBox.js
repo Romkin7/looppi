@@ -5,9 +5,10 @@ import './NumberBox.css';
 class NumberBox extends Component{
    constructor(props) {
        super(props);
+       this.answerInput = React.createRef();
        this.state = {
            input: {
-                answer: ""
+                answer: "",
            }
        };
    }
@@ -23,6 +24,7 @@ class NumberBox extends Component{
         event.preventDefault();
         this.props.submit(this.state.input.answer);
         setTimeout(this.emptyInputHandler, 1900);
+        this.answerInput.current.focus();
     }
 
     emptyInputHandler = () => {
@@ -34,12 +36,9 @@ class NumberBox extends Component{
     }
 
     componentWillUnmount() {
-        this.setState({
-            input: {
-                answer: ""
-            }
-        });
+        this.emptyInputHandler();
     };
+
     
    render() {
         const  { maxResult, result, number, success, wrong } = this.props;
@@ -48,7 +47,7 @@ class NumberBox extends Component{
             return( 
                 <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
                     <form className="boxForm" onSubmit={this.submitHandler}>
-                        <input className="number" name="answer" type="tel" autoFocus required pattern="[0-9]*" data-numeric-input value={ answer } onChange={this.changeHandler} />
+                        <input ref={this.answerInput} className="number" name="answer" type="tel" autoFocus ref={this.answerInput} pattern="[0-9]*" data-numeric-input value={ answer } onChange={this.changeHandler} />
                         <button className="submit">Tarkista</button>
                     </form>
                 </div>

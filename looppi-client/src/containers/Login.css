@@ -1,6 +1,6 @@
-h2, a, p {
+h1, a, p {
     color: white;
-    font-size: 1.5em;
+    font-size: 5.8vw;
     margin: 5px;
 }
 
@@ -12,7 +12,7 @@ form.loginForm {
   justify-content: center;
 }
 
-.menu h2, .menu p {
+.menu h1, .menu p {
   font-family: 'Love Ya Like A Sister', cursive;
 }
 
@@ -27,11 +27,10 @@ form.loginForm > input {
 
 .menu {
   display: flex;
+  width: 80vw;
   flex-direction: column;
   text-align: center;
   height: inherit;
-  background: url('../chalkboard-517818_1920.jpg') no-repeat center center fixed;
-
 }
 
 ul {
@@ -53,10 +52,21 @@ ul.unfolded {
 button.dropdownBtn {
   margin-top: 10px;
   font-family: 'Love Ya Like A Sister', cursive;
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 
 .dropdown a {
   margin: 0;
   padding: 0;
+}
+
+@media screen and (min-width: 568px) {
+
+.menu {
+  width: 50vw;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
 }

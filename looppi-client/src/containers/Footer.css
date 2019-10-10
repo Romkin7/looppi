@@ -1,6 +1,10 @@
 footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
     background-color:#28C349;
-    height: 15vh;
+    height: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,10 +12,20 @@ footer {
 }
 
 h6 {
-    font-size: 0.9rem;
     font-family: 'Quicksand', sans-serif; 
     font-weight: normal; 
     text-align: center;
-    margin: 3px; 
     color: white;
+    font-size: 0.7rem;
+}
+
+@media screen and (min-width: 568px) {
+
+footer {
+    height: 15vh;
+}
+
+h6 {
+    font-size: 0.9rem;
+}
 }
