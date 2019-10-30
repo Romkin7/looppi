@@ -13,9 +13,10 @@ class NumberBox extends Component{
        };
    }
    changeHandler = (event) => {
+       const {name, value} = event.target
        this.setState({
             input: { 
-                [event.target.name] : Number(event.target.value)
+                [name] : Number(value)
             }    
         });
     } 
@@ -23,7 +24,7 @@ class NumberBox extends Component{
     submitHandler = (event) => {
         event.preventDefault();
         this.props.submit(this.state.input.answer);
-        setTimeout(this.emptyInputHandler, 1900);
+        setTimeout(this.emptyInputHandler, 1500);
         this.answerInput.current.focus();
     }
 
@@ -47,7 +48,17 @@ class NumberBox extends Component{
             return( 
                 <div className={ "box " + (success ? "success" : wrong ? "wrong" : "")}>
                     <form className="boxForm" onSubmit={this.submitHandler}>
-                        <input ref={this.answerInput} className="number" name="answer" type="tel" autoFocus ref={this.answerInput} pattern="[0-9]*" data-numeric-input value={ answer } onChange={this.changeHandler} />
+                        <input 
+                            ref={this.answerInput} 
+                            className="number" 
+                            name="answer" 
+                            type="tel" 
+                            autoFocus 
+                            ref={this.answerInput} 
+                            pattern="[0-9]*" 
+                            data-numeric-input 
+                            value={this.state.input.answer} 
+                            onChange={this.changeHandler} />
                         <button className="submit">Tarkista</button>
                     </form>
                 </div>
