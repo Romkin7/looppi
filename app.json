@@ -1,0 +1,17 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+    "SECRET": "eeyey464564565tttrryrt78987979gdfgdgfdfdhgfhjuiyoiuoopo"
+  },
+  "formation": {
+  },
+  "name": "looppi",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
