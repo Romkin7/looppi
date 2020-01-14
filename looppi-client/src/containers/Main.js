@@ -53,16 +53,19 @@ class Main extends Component {
         : "Looppi - Laskuja lapsille";
         return (
             <div className="mainContainer">
-                <AppNavbar titleText={title} logout={this.logoutFromGame} maxResult={ multiplier ? multiplier : max } bgColor={ bgColor } currentUser={currentUser}></AppNavbar>
-                <Switch>
-                    <Route path="/" exact render={props => {
-                    return (<Login removeError={ removeError } errors={ errors } 
-                        onAuth={ authenticateUser } updateParameters={this.setParameters} currentUser={currentUser} />)}}></Route>
-                    <Route path="/peli" render={
-                        props => <Game amountOfNumbers={amountOfNumbers} 
-                            operator={operator} maxResult={maxResult} 
-                            min={min} max={max} multiplier={multiplier} />}></Route>
-                </Switch>
+                <div>
+                    <AppNavbar titleText={title} logout={this.logoutFromGame} maxResult={ multiplier ? multiplier : max } bgColor={ bgColor } currentUser={currentUser}></AppNavbar>
+                    <Switch>
+                        <Route path="/" exact render={props => {
+                        return (<Login removeError={ removeError } errors={ errors } 
+                            onAuth={ authenticateUser } updateParameters={this.setParameters} currentUser={currentUser} />)}}></Route>
+                        <Route path="/peli" render={
+                            props => <Game amountOfNumbers={amountOfNumbers} 
+                                operator={operator} maxResult={maxResult} 
+                                min={min} max={max} multiplier={multiplier} />}></Route>
+                    </Switch>
+                </div>
+                <div className="push"></div>
             </div>
         )
     }    
